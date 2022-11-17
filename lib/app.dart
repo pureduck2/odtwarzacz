@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'screens/directories.dart';
 import 'screens/home.dart';
+import 'screens/playlists.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
@@ -11,6 +13,19 @@ class MyApp extends StatefulWidget {
 class MyAppState extends State<MyApp> {
   int _index = 0;
 
+  Widget _body() {
+    switch (_index) {
+      case 0:
+        return const Home();
+      case 1:
+        return const Playlists();
+      case 2:
+        return const Directories();
+      default:
+        throw UnimplementedError();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -20,8 +35,8 @@ class MyAppState extends State<MyApp> {
       darkTheme: ThemeData.dark(),
       themeMode: ThemeMode.dark,
       home: Scaffold(
-        body: const SafeArea(
-          child: Center(child: Text('Główna')),
+        body: SafeArea(
+          child: _body(),
         ),
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: _index,
