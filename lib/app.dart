@@ -33,39 +33,41 @@ class MyAppState extends State<MyApp> {
       title: 'Odtwarzacz',
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark()
-        .copyWith(scaffoldBackgroundColor: Colors.black)
-        .copyWith(bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-          backgroundColor: Colors.black,
-          selectedItemColor: Colors.white,
-        )),
+          .copyWith(scaffoldBackgroundColor: Colors.black)
+          .copyWith(
+              textTheme: const TextTheme(
+            headline1: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+            headline2: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          ))
+          .copyWith(
+              bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+            backgroundColor: Colors.black,
+            selectedItemColor: Colors.white,
+          )),
       themeMode: ThemeMode.dark,
       home: Scaffold(
         body: SafeArea(
           child: _body(),
         ),
         bottomNavigationBar: BottomNavigationBar(
-          currentIndex: _index,
-          onTap: (index) {
-            setState(() => _index = index);
-          },
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home_outlined),
-              activeIcon: Icon(Icons.home),
-              label: 'Główna'
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.library_music_outlined),
-              activeIcon: Icon(Icons.library_music),
-              label: 'Biblioteka'
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.folder_outlined),
-              activeIcon: Icon(Icons.folder),
-              label: 'Katalogi'
-            )
-          ]
-        ),
+            currentIndex: _index,
+            onTap: (index) {
+              setState(() => _index = index);
+            },
+            items: const <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.home_outlined),
+                  activeIcon: Icon(Icons.home),
+                  label: 'Główna'),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.library_music_outlined),
+                  activeIcon: Icon(Icons.library_music),
+                  label: 'Biblioteka'),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.folder_outlined),
+                  activeIcon: Icon(Icons.folder),
+                  label: 'Katalogi')
+            ]),
       ),
     );
   }
