@@ -22,7 +22,7 @@ class PlaylistShow extends StatelessWidget {
         ),],
           )
       ),
-          bottomNavigationBar: PreferredSize(preferredSize: const Size.fromHeight(80.0),
+          bottomNavigationBar: SizedBox(height: 70,
            child: BottomNavigationBar(
              backgroundColor: Colors.white10,
              selectedItemColor: Colors.white,
@@ -47,3 +47,4 @@ class PlaylistShow extends StatelessWidget {
     );
   }
 }
+
