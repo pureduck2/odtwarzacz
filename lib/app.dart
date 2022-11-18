@@ -32,7 +32,12 @@ class MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       title: 'Odtwarzacz',
       theme: ThemeData.light(),
-      darkTheme: ThemeData.dark(),
+      darkTheme: ThemeData.dark()
+        .copyWith(scaffoldBackgroundColor: Colors.black)
+        .copyWith(bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+          backgroundColor: Colors.black,
+          selectedItemColor: Colors.white,
+        )),
       themeMode: ThemeMode.dark,
       home: Scaffold(
         body: SafeArea(
