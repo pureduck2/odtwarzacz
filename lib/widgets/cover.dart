@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 
 class Cover extends StatelessWidget {
-  const Cover({super.key, this.color = Colors.red});
+  const Cover({super.key, this.color = Colors.blue});
 
   final Color color;
 

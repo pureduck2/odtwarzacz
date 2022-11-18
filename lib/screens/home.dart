@@ -59,11 +59,11 @@ class Home extends StatelessWidget {
             SizedBox(
               width: 20,
             ),
-            Cover(color: Colors.blue),
+            Cover(color: Colors.red),
             SizedBox(
               width: 20,
             ),
-            Cover(color: Colors.blue),
+            Cover(color: Colors.red),
             SizedBox(
               width: 20,
             ),
@@ -76,11 +76,11 @@ class Home extends StatelessWidget {
             SizedBox(
               width: 20,
             ),
-            Cover(color: Colors.blue),
+            Cover(color: Colors.red),
             SizedBox(
               width: 20,
             ),
-            Cover(color: Colors.blue),
+            Cover(color: Colors.red),
             SizedBox(
               width: 20,
             ),
