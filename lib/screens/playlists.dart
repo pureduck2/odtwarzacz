@@ -8,7 +8,7 @@ class Playlists extends StatelessWidget {
     return MaterialApp(
       title: 'Playlists',
       home: Scaffold(
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.white,
         appBar: PreferredSize(preferredSize: const Size.fromHeight(65.0),
          child: AppBar(
           backgroundColor: Colors.black,
@@ -25,7 +25,14 @@ class Playlists extends StatelessWidget {
               )
             ],
           )
-        )
+        ),
+          bottomNavigationBar: BottomNavigationBar(
+      items: const [
+             BottomNavigationBarItem(icon: Icon(Icons.home_rounded), label: 'Główna'),
+             BottomNavigationBarItem(icon: Icon(Icons.add), label: 'Biblioteka'),
+             BottomNavigationBarItem(icon: Icon(Icons.account_balance_wallet_rounded), label: 'Katalogi'),
+    ],),
+
           ),
       );
   }
