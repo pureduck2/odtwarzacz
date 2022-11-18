@@ -22,22 +22,22 @@ class PlaylistShow extends StatelessWidget {
         ),],
           )
       ),
-          bottomNavigationBar: SizedBox(height: 70,
+           bottomNavigationBar: SizedBox(height: 70,
            child: BottomNavigationBar(
              backgroundColor: Colors.white10,
              selectedItemColor: Colors.white,
              unselectedItemColor: Colors.white,
              items: const  <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-                icon: Icon(Icons.home_rounded)
+                icon: Icon(Icons.home_rounded,size: 35,)
                 , label: 'Główna'
             ),
             BottomNavigationBarItem(
-                icon: Icon(Icons.add),
+                icon: Icon(Icons.add,size: 35,),
                 label: 'Biblioteka'
             ),
             BottomNavigationBarItem(
-                icon: Icon(Icons.account_balance_wallet_rounded),
+                icon: Icon(Icons.account_balance_wallet_rounded,size: 35,),
                  label: 'Katalogi'
             ),
     ],
@@ -47,4 +47,3 @@ class PlaylistShow extends StatelessWidget {
     );
   }
 }
-
