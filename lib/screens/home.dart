@@ -7,85 +7,87 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var textTheme = Theme.of(context).textTheme;
+    var padding = 30.0;
 
     return Center(
         child: SingleChildScrollView(
             child: Column(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
+        SizedBox(height: padding),
         Text('Szybki wybór', style: textTheme.headline1),
-        SizedBox(height: 20),
+        SizedBox(height: padding),
         Text('Ostatnio odtwarzane', style: textTheme.headline2),
-        SizedBox(height: 20),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: const [
-            SizedBox(
-              width: 20,
-            ),
-            Cover(),
-            SizedBox(
-              width: 20,
-            ),
-            Cover(),
-            SizedBox(
-              width: 20,
-            ),
-          ],
-        ),
-        SizedBox(height: 20),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: const [
-            SizedBox(
-              width: 20,
-            ),
-            Cover(),
-            SizedBox(
-              width: 20,
-            ),
-            Cover(),
-            SizedBox(
-              width: 20,
-            ),
-          ],
-        ),
-        SizedBox(height: 20),
+        SizedBox(height: padding),
+        SizedBox(
+            height: 150,
+            child: GridView.builder(
+              shrinkWrap: true,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2, mainAxisSpacing: 10, crossAxisSpacing: 10),
+              itemCount: 4,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (BuildContext context, int index) {
+                return const GridTile(child: Cover());
+              },
+            )),
+        // SingleChildScrollView(
+        //   scrollDirection: Axis.horizontal,
+        //   child: Row(
+        //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        //     children: [
+        //       SizedBox(
+        //         width: padding,
+        //       ),
+        //       const Cover(),
+        //       SizedBox(
+        //         width: padding,
+        //       ),
+        //       const Cover(),
+        //       SizedBox(
+        //         width: padding,
+        //       ),
+        //       const Cover(),
+        //       SizedBox(
+        //         width: padding,
+        //       ),
+        //       const Cover(),
+        //       SizedBox(
+        //         width: padding,
+        //       ),
+        //     ],
+        //   ),
+        // ),
+        SizedBox(height: padding),
         Text('Playlisty', style: textTheme.headline2),
-        SizedBox(height: 20),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: const [
-            SizedBox(
-              width: 20,
-            ),
-            Cover(color: Colors.red),
-            SizedBox(
-              width: 20,
-            ),
-            Cover(color: Colors.red),
-            SizedBox(
-              width: 20,
-            ),
-          ],
+        SizedBox(height: padding),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              SizedBox(
+                width: padding,
+              ),
+              const Cover(color: Colors.red),
+              SizedBox(
+                width: padding,
+              ),
+              const Cover(color: Colors.red),
+              SizedBox(
+                width: padding,
+              ),
+              const Cover(color: Colors.red),
+              SizedBox(
+                width: padding,
+              ),
+              const Cover(color: Colors.red),
+              SizedBox(
+                width: padding,
+              ),
+            ],
+          ),
         ),
-        SizedBox(height: 20),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: const [
-            SizedBox(
-              width: 20,
-            ),
-            Cover(color: Colors.red),
-            SizedBox(
-              width: 20,
-            ),
-            Cover(color: Colors.red),
-            SizedBox(
-              width: 20,
-            ),
-          ],
-        ),
+        SizedBox(height: padding)
       ],
     )));
   }
