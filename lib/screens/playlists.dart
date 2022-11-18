@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class Playlist extends StatelessWidget {
-  const Playlist({Key? key}) : super(key: key);
+class Playlists extends StatelessWidget {
+  const Playlists({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Playlist',
+      title: 'Playlists',
       home: Scaffold(
         backgroundColor: Colors.black,
         appBar: AppBar(
