@@ -45,16 +45,33 @@ class PlaylistShow extends StatelessWidget {
          ),
           body: Padding(padding: EdgeInsets.all(2),
             child: Center(
-              child: Column(
-             mainAxisAlignment: MainAxisAlignment.start,
-             children: [
-               Image.asset('assets/Cover-13v4-small.jpg',
-                 height: 200,
-                 width: 200,),
-             ],
+              child: Material(
+                elevation: 8,
+                borderRadius: BorderRadius.circular(28),
+                clipBehavior: Clip.antiAliasWithSaveLayer,
+               child: InkWell(
+                splashColor: Colors.white,
+                 onTap: () {},
+                child: Container(
+                 decoration: BoxDecoration(
+                 color: Colors.transparent,
+                 border: Border.all(color: Colors.blue, width: 3),
+                 borderRadius: BorderRadius.circular(28),
+                 ),
+                   child: Column(
+                    children: [
+                    Image.asset('assets/Cover-13v4-small.jpg',
+                      height: 200,
+                      width: 200,
+                   ),
+                  ],
+                 )
+                )
+              )
             )
-      )
-    )
+          )
+        )
       )
     );
   }
+}
