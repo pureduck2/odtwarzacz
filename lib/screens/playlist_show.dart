@@ -20,30 +20,41 @@ class PlaylistShow extends StatelessWidget {
                icon: const Icon(Icons.add, size: 35,),
                onPressed: () {}
         ),],
-          )
+          ),
       ),
            bottomNavigationBar: SizedBox(height: 70,
-           child: BottomNavigationBar(
-             backgroundColor: Colors.white10,
-             selectedItemColor: Colors.white,
-             unselectedItemColor: Colors.white,
-             items: const  <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
+             child: BottomNavigationBar(
+               backgroundColor: Colors.white10,
+               selectedItemColor: Colors.white,
+               unselectedItemColor: Colors.white,
+               items: const  <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
                 icon: Icon(Icons.home_rounded,size: 35,)
                 , label: 'Główna'
-            ),
-            BottomNavigationBarItem(
+              ),
+              BottomNavigationBarItem(
                 icon: Icon(Icons.add,size: 35,),
                 label: 'Biblioteka'
-            ),
-            BottomNavigationBarItem(
+              ),
+              BottomNavigationBarItem(
                 icon: Icon(Icons.account_balance_wallet_rounded,size: 35,),
                  label: 'Katalogi'
-            ),
-    ],
+              ),
+            ],
            ),
+         ),
+          body: Padding(padding: EdgeInsets.all(2),
+            child: Center(
+              child: Column(
+             mainAxisAlignment: MainAxisAlignment.start,
+             children: [
+               Image.asset('assets/Cover-13v4-small.jpg',
+                 height: 200,
+                 width: 200,),
+             ],
+            )
+      )
     )
       )
     );
   }
-}
