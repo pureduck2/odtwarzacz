@@ -7,10 +7,11 @@ class PlaylistShow extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.white12,
         appBar: PreferredSize(preferredSize: const Size.fromHeight(65.0),
         child: AppBar(
-          backgroundColor: Colors.black,
+          elevation: 0,
+          backgroundColor: Colors.transparent,
             leading: IconButton(
                icon: const Icon(Icons.arrow_back, size: 35,),
                onPressed: () {},
@@ -24,7 +25,7 @@ class PlaylistShow extends StatelessWidget {
       ),
            bottomNavigationBar: SizedBox(height: 70,
              child: BottomNavigationBar(
-               backgroundColor: Colors.white10,
+               backgroundColor: Colors.black12,
                selectedItemColor: Colors.white,
                unselectedItemColor: Colors.white,
                items: const  <BottomNavigationBarItem>[
@@ -43,32 +44,47 @@ class PlaylistShow extends StatelessWidget {
             ],
            ),
          ),
-          body: Padding(padding: EdgeInsets.all(2),
+          body: Padding(padding: const EdgeInsets.all(2),
             child: Center(
-              child: Material(
-                elevation: 8,
-                borderRadius: BorderRadius.circular(28),
-                clipBehavior: Clip.antiAliasWithSaveLayer,
-               child: InkWell(
-                splashColor: Colors.white,
-                 onTap: () {},
                 child: Container(
-                 decoration: BoxDecoration(
-                 color: Colors.transparent,
-                 border: Border.all(color: Colors.blue, width: 3),
-                 borderRadius: BorderRadius.circular(28),
+                 decoration: const BoxDecoration(
+                   gradient: LinearGradient(
+                     colors: [
+                       Colors.white10,
+                       Colors.white12,
+                       Colors.black12,
+                       Colors.black26,
+                       Colors.black38,
+                       Colors.black45,
+                       Colors.black54,
+                       Colors.black87,
+                       Colors.black,
+                     ],
+                     begin: Alignment.topLeft,
+                     end: Alignment.bottomRight,
+                   )
                  ),
                    child: Column(
+                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                    Image.asset('assets/Cover-13v4-small.jpg',
-                      height: 200,
-                      width: 200,
-                   ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Image.asset('assets/Cover-13v4-small.jpg',
+                            height: 200,
+                            width: 200,
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: const [
+                          Text('NAZWA PLAYLISTY',style: TextStyle(fontSize: 25,color: Colors.white,fontWeight: FontWeight.w900),)
+                        ],
+                      )
                   ],
                  )
                 )
-              )
-            )
           )
         )
       )
