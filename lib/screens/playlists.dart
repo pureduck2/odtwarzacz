@@ -8,10 +8,8 @@ class Playlists extends StatelessWidget {
     return MaterialApp(
       title: 'Playlists',
       home: Scaffold(
-        backgroundColor: Colors.white,
-        appBar: PreferredSize(preferredSize: const Size.fromHeight(60),
-            child: AppBar(
-              backgroundColor: Colors.blueGrey.shade800,
+        appBar: AppBar(
+              backgroundColor: Colors.black,
               leading: IconButton(
                 icon: const Icon(Icons.arrow_back, size: 35),
                 onPressed: () {},
@@ -22,23 +20,33 @@ class Playlists extends StatelessWidget {
                 IconButton(
                     icon: const Icon(Icons.add, size: 35),
                     onPressed: () {}
-                )
-              ],
+                )],
+                 ),
+        body: Padding(padding: const EdgeInsets.all(2),
+          child: Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                  colors: [
+                    Colors.white,
+                    Colors.black,
+                  ],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              )
+            ),
+
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Image.network('https://media.pitchfork.com/photos/5c1023aea32fbc2d77bb9a2e/1:1/w_600/icarus%20falls_zayn.jpg', height: 150, width: 150),
+                  Image.network('https://media.pitchfork.com/photos/5c1023aea32fbc2d77bb9a2e/1:1/w_600/icarus%20falls_zayn.jpg', height: 150, width: 150),
+                  Image.network('https://media.pitchfork.com/photos/5c1023aea32fbc2d77bb9a2e/1:1/w_600/icarus%20falls_zayn.jpg', height: 150, width: 150),
+                ],)
+
+            ),
             )
-        ),
-        bottomNavigationBar: SizedBox (height: 70,
-          child: BottomNavigationBar(
-            backgroundColor: Colors.blueGrey.shade800,
-            selectedItemColor: Colors.white,
-            unselectedItemColor: Colors.white,
-            items: const [
-            BottomNavigationBarItem(icon: Icon(Icons.home_rounded), label: 'Główna'),
-            BottomNavigationBarItem(icon: Icon(Icons.add), label: 'Biblioteka'),
-            BottomNavigationBarItem(icon: Icon(Icons.account_balance_wallet_rounded), label: 'Katalogi'),
-          ],),
-           ),
-        
-          ),
-         );
+          )
+           );
+
   }
 }
