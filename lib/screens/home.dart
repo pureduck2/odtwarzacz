@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:odtwarzacz/widgets/album.dart';
 import 'package:odtwarzacz/widgets/cover.dart';
+import 'package:odtwarzacz/widgets/column_list.dart';
+import 'package:odtwarzacz/widgets/track.dart';
+
+import '../widgets/centeredtext.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -7,86 +12,43 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var textTheme = Theme.of(context).textTheme;
+    var padding = 30.0;
 
-    return Center(
-        child: SingleChildScrollView(
-            child: Column(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    return SingleChildScrollView(
+        child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Text('Szybki wybór', style: textTheme.headline1),
-        SizedBox(height: 20),
-        Text('Ostatnio odtwarzane', style: textTheme.headline2),
-        SizedBox(height: 20),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: const [
-            SizedBox(
-              width: 20,
-            ),
-            Cover(),
-            SizedBox(
-              width: 20,
-            ),
-            Cover(),
-            SizedBox(
-              width: 20,
-            ),
-          ],
+        SizedBox(height: padding),
+        CenteredText(
+          'Szybki wybór',
+          style: textTheme.headline1,
         ),
-        SizedBox(height: 20),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: const [
-            SizedBox(
-              width: 20,
-            ),
-            Cover(),
-            SizedBox(
-              width: 20,
-            ),
-            Cover(),
-            SizedBox(
-              width: 20,
-            ),
-          ],
+        SizedBox(height: padding),
+        CenteredText('Ostatnio odtwarzane', style: textTheme.headline2),
+        SizedBox(height: padding),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: ColumnList(
+            columnCount: 2,
+            children: List.generate(43, (index) {
+              return Track(name: '$index', author: '$index',);
+            }),
+          )
         ),
-        SizedBox(height: 20),
-        Text('Playlisty', style: textTheme.headline2),
-        SizedBox(height: 20),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: const [
-            SizedBox(
-              width: 20,
-            ),
-            Cover(color: Colors.red),
-            SizedBox(
-              width: 20,
-            ),
-            Cover(color: Colors.red),
-            SizedBox(
-              width: 20,
-            ),
-          ],
+        SizedBox(height: padding),
+        CenteredText('Playlisty', style: textTheme.headline2),
+        SizedBox(height: padding),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: ColumnList(
+            columnCount: 1,
+            children: List.generate(43, (index) {
+              return Album(name: '$index');
+            }),
+          )
         ),
-        SizedBox(height: 20),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: const [
-            SizedBox(
-              width: 20,
-            ),
-            Cover(color: Colors.red),
-            SizedBox(
-              width: 20,
-            ),
-            Cover(color: Colors.red),
-            SizedBox(
-              width: 20,
-            ),
-          ],
-        ),
+        SizedBox(height: padding)
       ],
-    )));
+    ));
   }
 }
