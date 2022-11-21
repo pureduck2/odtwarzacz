@@ -13,14 +13,15 @@ class Album extends StatelessWidget {
   Widget build(BuildContext context) {
     var textTheme = Theme.of(context).textTheme;
 
-    return Row(
-      children: [
-        const SizedBox(width: padding),
-        const Cover(),
-        const SizedBox(width: padding),
-        Text(name, style: textTheme.headline4),
-        const SizedBox(width: padding)
-      ],
+    return Container(
+      padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+      child: Column(
+        children: [
+          const Cover(constraints: BoxConstraints(maxWidth: 128.0, maxHeight: 128.0)),
+          const SizedBox(height: padding),
+          Text(name, style: textTheme.headline3),
+        ],
+      ),
     );
   }
 }

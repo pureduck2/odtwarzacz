@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:quiver/iterables.dart';
 
-class RowList extends StatelessWidget {
-  const RowList({super.key, required this.children, required this.columnCount});
+class ColumnList extends StatelessWidget {
+  const ColumnList({super.key, required this.children, required this.columnCount});
 
   final List<Widget> children;
   final int columnCount;

@@ -38,7 +38,7 @@ class MyAppState extends State<MyApp> {
               textTheme: const TextTheme(
             headline1: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
             headline2: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            headline4: TextStyle(fontSize: 20),
+            headline3: TextStyle(fontSize: 20),
           ))
           .copyWith(
               bottomNavigationBarTheme: const BottomNavigationBarThemeData(

@@ -13,7 +13,7 @@ class Track extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var textTheme = Theme.of(context).textTheme;
-    var columnChildren = [Text(name, style: textTheme.headline4)];
+    var columnChildren = [Text(name, style: textTheme.headline3)];
 
     if (author != null) {
       columnChildren.add(Text(author!));

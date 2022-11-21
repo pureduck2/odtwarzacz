@@ -28,7 +28,7 @@ class Home extends StatelessWidget {
         SizedBox(height: padding),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
-          child: RowList(
+          child: ColumnList(
             columnCount: 2,
             children: List.generate(43, (index) {
               return Track(name: '$index', author: '$index',);
@@ -40,8 +40,8 @@ class Home extends StatelessWidget {
         SizedBox(height: padding),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
-          child: RowList(
-            columnCount: 2,
+          child: ColumnList(
+            columnCount: 1,
             children: List.generate(43, (index) {
               return Album(name: '$index');
             }),
