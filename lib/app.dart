@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'screens/directories.dart';
 import 'screens/home.dart';
 import 'screens/playlists.dart';
+import 'screens/player.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
@@ -16,7 +17,7 @@ class MyAppState extends State<MyApp> {
   Widget _body() {
     switch (_index) {
       case 0:
-        return const Home();
+        return const Player();
       case 1:
         return const Playlists();
       case 2:
