@@ -41,7 +41,8 @@ class MyAppState extends State<MyApp> {
           ))
           .copyWith(
               bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-            backgroundColor: Colors.black,
+                elevation: 0,
+            backgroundColor: Colors.transparent,
             selectedItemColor: Colors.white,
           )),
       themeMode: ThemeMode.dark,
