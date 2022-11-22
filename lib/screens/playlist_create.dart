@@ -27,9 +27,8 @@ class PlaylistCreate extends StatelessWidget {
   }
 }
 
-class _HomePageState extends State<HomePage> {
-  final _textController = TextEditingController();
-}
+final _textController = TextEditingController();
+
 
 @override
 Widget build(BuildContext context) {
@@ -40,7 +39,7 @@ Widget build(BuildContext context) {
         mainAxisAlignment: MainAxisAlignment.center,
         children: const [
           TextField(
-            controller:  _textController(),
+            controller: _textController(),
             decoration: InputDecoration(
               hintText: 'Nazwa',
               border:  OutlineInputBorder(),
