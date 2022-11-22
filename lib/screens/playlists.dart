@@ -8,7 +8,7 @@ class Playlists extends StatelessWidget {
     return MaterialApp(
       title: 'Playlists',
       home: Scaffold(
-        backgroundColor: Colors.blueGrey.shade700,
+        backgroundColor: Colors.black,
         appBar: PreferredSize(preferredSize: const Size.fromHeight(60),
             child: AppBar(
               backgroundColor: Colors.black,
