@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'home.dart';
+
 class PlaylistShow extends StatelessWidget {
   const PlaylistShow({super.key});
 
@@ -14,7 +16,12 @@ class PlaylistShow extends StatelessWidget {
                 backgroundColor: Colors.transparent,
                 leading: IconButton(
                   icon: const Icon(Icons.arrow_back, size: 25,),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const Home()),
+                    );
+                  },
                 ),
                 actions: [
                   IconButton(
