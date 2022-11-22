@@ -21,6 +21,11 @@ class Directories extends StatelessWidget {
     ),
     title: const Text('Katalogi', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),),
     centerTitle: true,
+      actions: [
+        IconButton(
+            icon: const Icon(Icons.saved_search, size: 35),
+            onPressed: () {}
+        )],
     )
     ),
     body: Padding(padding: const EdgeInsets.fromLTRB(10, 7, 10, 7),
@@ -35,28 +40,22 @@ class Directories extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             IconButton(
-              icon: Image.network('https://media.pitchfork.com/photos/5e0f6f452ff48f0008f567cb/1:1/w_320,c_limit/jackboys_travis.jpg'),
+              icon: const Icon(Icons.folder, color: Colors.white),
               iconSize: 65,
               onPressed: () {},
             ),
 
             SizedBox(
-              width: 220,
+              width: 275,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: const [
-                  Text('tytul',style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w500,),
-                  ),
-                  Text('autor',style: TextStyle(fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),
+                  Text('tytul',style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w500),
                   ),
                 ],
               ),
 
             ),
-            IconButton(
-                icon: const Icon(Icons.more_vert_rounded, size: 25,color: Colors.white,),
-                onPressed: () {}
-            )
           ],
         ),
 
@@ -64,28 +63,22 @@ class Directories extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             IconButton(
-              icon: Image.network('https://media.pitchfork.com/photos/5e0f6f452ff48f0008f567cb/1:1/w_320,c_limit/jackboys_travis.jpg'),
+              icon: const Icon(Icons.folder, color: Colors.white),
               iconSize: 65,
               onPressed: () {},
             ),
 
             SizedBox(
-              width: 220,
+              width: 275,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: const [
-                  Text('tytul',style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w500,),
-                  ),
-                  Text('autor',style: TextStyle(fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),
+                  Text('tytul',style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w500),
                   ),
                 ],
               ),
 
             ),
-            IconButton(
-                icon: const Icon(Icons.more_vert_rounded, size: 25,color: Colors.white,),
-                onPressed: () {}
-            )
           ],
         ),
 
@@ -93,28 +86,22 @@ class Directories extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             IconButton(
-              icon: Image.network('https://media.pitchfork.com/photos/5e0f6f452ff48f0008f567cb/1:1/w_320,c_limit/jackboys_travis.jpg'),
+              icon: const Icon(Icons.folder, color: Colors.white),
               iconSize: 65,
               onPressed: () {},
             ),
 
             SizedBox(
-              width: 220,
+              width: 275,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: const [
                   Text('tytul',style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w500,),
                   ),
-                  Text('autor',style: TextStyle(fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),
-                  ),
                 ],
               ),
 
             ),
-            IconButton(
-                icon: const Icon(Icons.more_vert_rounded, size: 25,color: Colors.white,),
-                onPressed: () {}
-            )
           ],
         ),
 
@@ -122,28 +109,22 @@ class Directories extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             IconButton(
-              icon: Image.network('https://media.pitchfork.com/photos/5e0f6f452ff48f0008f567cb/1:1/w_320,c_limit/jackboys_travis.jpg'),
+              icon: const Icon(Icons.folder, color: Colors.white),
               iconSize: 65,
               onPressed: () {},
             ),
 
             SizedBox(
-              width: 220,
+              width: 275,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: const [
                   Text('tytul',style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w500,),
                   ),
-                  Text('autor',style: TextStyle(fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),
-                  ),
                 ],
               ),
 
             ),
-            IconButton(
-                icon: const Icon(Icons.more_vert_rounded, size: 25,color: Colors.white,),
-                onPressed: () {}
-            )
           ],
         ),
 
@@ -151,56 +132,44 @@ class Directories extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             IconButton(
-              icon: Image.network('https://media.pitchfork.com/photos/5e0f6f452ff48f0008f567cb/1:1/w_320,c_limit/jackboys_travis.jpg'),
+              icon: const Icon(Icons.folder, color: Colors.white),
               iconSize: 65,
               onPressed: () {},
             ),
 
             SizedBox(
-              width: 220,
+              width: 275,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: const [
                   Text('tytul',style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w500,),
                   ),
-                  Text('autor',style: TextStyle(fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),
-                  ),
                 ],
               ),
 
             ),
-            IconButton(
-                icon: const Icon(Icons.more_vert_rounded, size: 25,color: Colors.white,),
-                onPressed: () {}
-            )
           ],
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             IconButton(
-              icon: Image.network('https://media.pitchfork.com/photos/5e0f6f452ff48f0008f567cb/1:1/w_320,c_limit/jackboys_travis.jpg'),
+              icon: const Icon(Icons.folder, color: Colors.white),
               iconSize: 65,
               onPressed: () {},
             ),
 
             SizedBox(
-              width: 220,
+              width: 275,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: const [
                   Text('tytul',style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w500,),
                   ),
-                  Text('autor',style: TextStyle(fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),
-                  ),
                 ],
               ),
 
             ),
-            IconButton(
-                icon: const Icon(Icons.more_vert_rounded, size: 25,color: Colors.white,),
-                onPressed: () {}
-            )
           ],
         ),
 
@@ -208,84 +177,66 @@ class Directories extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             IconButton(
-              icon: Image.network('https://media.pitchfork.com/photos/5e0f6f452ff48f0008f567cb/1:1/w_320,c_limit/jackboys_travis.jpg'),
+              icon: const Icon(Icons.folder, color: Colors.white),
               iconSize: 65,
               onPressed: () {},
             ),
 
             SizedBox(
-              width: 220,
+              width: 275,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: const [
                   Text('tytul',style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w500,),
                   ),
-                  Text('autor',style: TextStyle(fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),
-                  ),
                 ],
               ),
 
             ),
-            IconButton(
-                icon: const Icon(Icons.more_vert_rounded, size: 25,color: Colors.white,),
-                onPressed: () {}
-            )
           ],
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             IconButton(
-              icon: Image.network('https://media.pitchfork.com/photos/5e0f6f452ff48f0008f567cb/1:1/w_320,c_limit/jackboys_travis.jpg'),
+              icon: const Icon(Icons.folder, color: Colors.white),
               iconSize: 65,
               onPressed: () {},
             ),
 
             SizedBox(
-              width: 220,
+              width: 275,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: const [
                   Text('tytul',style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w500,),
                   ),
-                  Text('autor',style: TextStyle(fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),
-                  ),
                 ],
               ),
 
             ),
-            IconButton(
-                icon: const Icon(Icons.more_vert_rounded, size: 25,color: Colors.white,),
-                onPressed: () {}
-            )
           ],
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             IconButton(
-              icon: Image.network('https://media.pitchfork.com/photos/5e0f6f452ff48f0008f567cb/1:1/w_320,c_limit/jackboys_travis.jpg'),
+              icon: const Icon(Icons.folder, color: Colors.white),
               iconSize: 65,
               onPressed: () {},
             ),
 
             SizedBox(
-              width: 220,
+              width: 275,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: const [
                   Text('tytul',style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w500,),
                   ),
-                  Text('autor',style: TextStyle(fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),
-                  ),
                 ],
               ),
 
             ),
-            IconButton(
-                icon: const Icon(Icons.more_vert_rounded, size: 25,color: Colors.white,),
-                onPressed: () {}
-            )
           ],
         ),
       ],
