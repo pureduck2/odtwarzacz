@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'home.dart';
 
 class PlaylistShow extends StatelessWidget {
   const PlaylistShow({super.key});
@@ -10,26 +9,23 @@ class PlaylistShow extends StatelessWidget {
     return MaterialApp(
         home: Scaffold(
             backgroundColor: Colors.white12,
-            appBar: PreferredSize(preferredSize: const Size.fromHeight(55.0),
-              child: AppBar(
+            appBar: AppBar(
                 elevation: 0,
                 backgroundColor: Colors.transparent,
                 leading: IconButton(
                   icon: const Icon(Icons.arrow_back, size: 25,),
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const Home()),
-                    );
+                    Navigator.pop(context);
                   },
                 ),
                 actions: [
                   IconButton(
                       icon: const Icon(Icons.add, size: 25,),
-                      onPressed: () {}
+                      onPressed: () {
+                        Navigator.pushNamed(context,'PlaylistCreate');
+                      }
                   ),],
               ),
-            ),
             body: Padding(padding: const EdgeInsets.all(2),
                 child: Container(
                     decoration: const BoxDecoration(
@@ -58,9 +54,20 @@ class PlaylistShow extends StatelessWidget {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
-                                Image.asset('assets/Cover-13v4-small.jpg',
-                                  height: 200,
-                                  width: 200,
+                                Container(
+                                  decoration: const BoxDecoration(
+                                    color: Colors.teal,
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.white,
+                                        blurRadius: 7, // Shadow position
+                                      ),
+                                    ],
+                                  ),
+                                  child: Image.asset('assets/Cover-13v4-small.jpg',
+                                    height: 200,
+                                    width: 200,
+                                  ),
                                 ),
                               ],
                             ),
@@ -93,9 +100,23 @@ class PlaylistShow extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 IconButton(
-                                  icon: Image.asset('assets/Cover-13v4-small.jpg'),
+                                  splashRadius: 45,
+                                  icon: Container(
+                                      decoration: const BoxDecoration(
+                                        color: Colors.teal,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.white,
+                                            blurRadius: 4, // Shadow position
+                                          ),
+                                        ],
+                                      ),
+                                      child: Image.asset('assets/Cover-13v4-small.jpg')
+                                  ),
                                   iconSize: 65,
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.pushNamed(context,'Home');
+                                  },
                                 ),
 
                                 SizedBox(
@@ -123,9 +144,23 @@ class PlaylistShow extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 IconButton(
-                                  icon: Image.asset('assets/Cover-13v4-small.jpg'),
+                                  splashRadius: 45,
+                                  icon: Container(
+                                      decoration: const BoxDecoration(
+                                        color: Colors.teal,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.white,
+                                            blurRadius: 4, // Shadow position
+                                          ),
+                                        ],
+                                    ),
+                                      child: Image.asset('assets/Cover-13v4-small.jpg')
+                                  ),
                                   iconSize: 65,
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.pushNamed(context,'Home');
+                                  },
                                 ),
 
                                 SizedBox(
@@ -153,9 +188,23 @@ class PlaylistShow extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 IconButton(
-                                  icon: Image.asset('assets/Cover-13v4-small.jpg'),
+                                  splashRadius: 45,
+                                  icon: Container(
+                                      decoration: const BoxDecoration(
+                                        color: Colors.teal,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.white,
+                                            blurRadius: 4, // Shadow position
+                                          ),
+                                        ],
+                                      ),
+                                      child: Image.asset('assets/Cover-13v4-small.jpg')
+                                  ),
                                   iconSize: 65,
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.pushNamed(context,'Home');
+                                  },
                                 ),
 
                                 SizedBox(
@@ -183,9 +232,23 @@ class PlaylistShow extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 IconButton(
-                                  icon: Image.asset('assets/Cover-13v4-small.jpg'),
+                                  splashRadius: 45,
+                                  icon: Container(
+                                      decoration: const BoxDecoration(
+                                        color: Colors.teal,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.white,
+                                            blurRadius: 4, // Shadow position
+                                          ),
+                                        ],
+                                      ),
+                                      child: Image.asset('assets/Cover-13v4-small.jpg')
+                                  ),
                                   iconSize: 65,
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.pushNamed(context,'Home');
+                                  },
                                 ),
 
                                 SizedBox(
@@ -213,9 +276,23 @@ class PlaylistShow extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 IconButton(
-                                  icon: Image.asset('assets/Cover-13v4-small.jpg'),
+                                  splashRadius: 45,
+                                  icon: Container(
+                                      decoration: const BoxDecoration(
+                                        color: Colors.teal,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.white,
+                                            blurRadius: 4, // Shadow position
+                                          ),
+                                        ],
+                                      ),
+                                      child: Image.asset('assets/Cover-13v4-small.jpg')
+                                  ),
                                   iconSize: 65,
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.pushNamed(context,'Home');
+                                  },
                                 ),
 
                                 SizedBox(
@@ -249,14 +326,42 @@ class PlaylistShow extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 IconButton(
-                                  icon: Image.asset('assets/Cover-13v4-small.jpg'),
+                                  splashRadius: 95,
+                                  icon: Container(
+                                      decoration: const BoxDecoration(
+                                        color: Colors.teal,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.white,
+                                            blurRadius: 4, // Shadow position
+                                          ),
+                                        ],
+                                      ),
+                                      child: Image.asset('assets/Cover-13v4-small.jpg')
+                                  ),
                                   iconSize: 150,
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.pushNamed(context,'PlaylistShow');
+                                  },
                                 ),
                                 IconButton(
-                                  icon: Image.asset('assets/Cover-13v4-small.jpg'),
+                                  splashRadius: 95,
+                                  icon: Container(
+                                      decoration: const BoxDecoration(
+                                        color: Colors.teal,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.white,
+                                            blurRadius: 4, // Shadow position
+                                          ),
+                                        ],
+                                      ),
+                                      child: Image.asset('assets/Cover-13v4-small.jpg')
+                                  ),
                                   iconSize: 150,
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.pushNamed(context,'PlaylistShow');
+                                  },
                                 ),
                               ],
                             ),
