@@ -8,7 +8,9 @@ class Playlists extends StatelessWidget {
     return MaterialApp(
       title: 'Playlists',
       home: Scaffold(
-        appBar: AppBar(
+        backgroundColor: Colors.blueGrey.shade700,
+        appBar: PreferredSize(preferredSize: const Size.fromHeight(60),
+            child: AppBar(
               backgroundColor: Colors.black,
               leading: IconButton(
                 icon: const Icon(Icons.arrow_back, size: 35),
@@ -21,32 +23,61 @@ class Playlists extends StatelessWidget {
                     icon: const Icon(Icons.add, size: 35),
                     onPressed: () {}
                 )],
-                 ),
-        body: Padding(padding: const EdgeInsets.all(2),
-          child: Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                  colors: [
-                    Colors.white,
-                    Colors.black,
-                  ],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-              )
-            ),
+                 )
+               ),
+        body: Padding(padding: const EdgeInsets.fromLTRB(10, 7, 10, 7),
+               child: Row(
+                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                 children: [
+                   Column(
+                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                     children: [
+                       IconButton(
+                        icon: Image.network('https://media.pitchfork.com/photos/5c1023aea32fbc2d77bb9a2e/1:1/w_600/icarus%20falls_zayn.jpg'),
+                         iconSize: 150,
+                         onPressed: () {},
+                       ),
+                       const Text('Playlista 1', style: TextStyle(color: Colors.white)),
+                       IconButton(
+                         icon: Image.network('https://media.pitchfork.com/photos/5c1023aea32fbc2d77bb9a2e/1:1/w_600/icarus%20falls_zayn.jpg'),
+                         iconSize: 150,
+                         onPressed: () {},
+                     ),
+                       const Text('Playlista 2', style: TextStyle(color: Colors.white)),
+                       IconButton(
+                         icon: Image.network('https://media.pitchfork.com/photos/5c1023aea32fbc2d77bb9a2e/1:1/w_600/icarus%20falls_zayn.jpg'),
+                         iconSize: 150,
+                         onPressed: () {},
+                       ),
+                       const Text('Playlista 3', style: TextStyle(color: Colors.white)),
+                     ],),
 
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Image.network('https://media.pitchfork.com/photos/5c1023aea32fbc2d77bb9a2e/1:1/w_600/icarus%20falls_zayn.jpg', height: 150, width: 150),
-                  Image.network('https://media.pitchfork.com/photos/5c1023aea32fbc2d77bb9a2e/1:1/w_600/icarus%20falls_zayn.jpg', height: 150, width: 150),
-                  Image.network('https://media.pitchfork.com/photos/5c1023aea32fbc2d77bb9a2e/1:1/w_600/icarus%20falls_zayn.jpg', height: 150, width: 150),
-                ],)
-
-            ),
-            )
-          )
-           );
-
+                       Column(
+                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                           children: [
+                           IconButton(
+                               icon: Image.network('https://media.pitchfork.com/photos/5c1023aea32fbc2d77bb9a2e/1:1/w_600/icarus%20falls_zayn.jpg'),
+                               iconSize: 150,
+                               onPressed: () {},
+                               ),
+                          const Text('Playlista 1', style: TextStyle(color: Colors.white)),
+                           IconButton(
+                                icon: Image.network('https://media.pitchfork.com/photos/5c1023aea32fbc2d77bb9a2e/1:1/w_600/icarus%20falls_zayn.jpg'),
+                             iconSize: 150,
+                             onPressed: () {},
+                                  ),
+                                const Text('Playlista 2', style: TextStyle(color: Colors.white)),
+                           IconButton(
+                              icon: Image.network('https://media.pitchfork.com/photos/5c1023aea32fbc2d77bb9a2e/1:1/w_600/icarus%20falls_zayn.jpg'),
+                              iconSize: 150,
+                                onPressed: () {},
+                                ),
+                              const Text('Playlista 3', style: TextStyle(color: Colors.white)),
+                       ],)
+                 ],
+               )
+        ),
+       )
+    );
   }
 }
