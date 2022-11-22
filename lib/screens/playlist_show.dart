@@ -42,6 +42,7 @@ class PlaylistShow extends StatelessWidget {
                           end: Alignment.bottomRight,
                         )
                     ),
+
                     child: SingleChildScrollView(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
@@ -57,6 +58,7 @@ class PlaylistShow extends StatelessWidget {
                               ],
                             ),
                             const SizedBox(height: 10),
+
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: const [
@@ -79,6 +81,7 @@ class PlaylistShow extends StatelessWidget {
                               ],
                             ),
                             const SizedBox(height: 30),
+
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
@@ -88,10 +91,18 @@ class PlaylistShow extends StatelessWidget {
                                   onPressed: () {},
                                 ),
 
-                                const SizedBox(
+                                SizedBox(
                                   width: 220,
-                                  child: Text('makapaka',style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w500),
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: const [
+                                      Text('makapaka',style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w500,),
+                                      ),
+                                      Text('gienek',style: TextStyle(fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),
+                                      ),
+                                    ],
                                   ),
+
                                 ),
                                 IconButton(
                                     icon: const Icon(Icons.more_vert_rounded, size: 25,color: Colors.white,),
@@ -100,6 +111,7 @@ class PlaylistShow extends StatelessWidget {
                               ],
                             ),
                             const SizedBox(height: 10),
+
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
@@ -108,10 +120,19 @@ class PlaylistShow extends StatelessWidget {
                                   iconSize: 65,
                                   onPressed: () {},
                                 ),
-                                const SizedBox(
+
+                                SizedBox(
                                   width: 220,
-                                  child: Text('makapaka',style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w500),
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: const [
+                                      Text('makapaka',style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w500,),
+                                      ),
+                                      Text('makapaka',style: TextStyle(fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),
+                                      ),
+                                    ],
                                   ),
+
                                 ),
                                 IconButton(
                                     icon: const Icon(Icons.more_vert_rounded, size: 25,color: Colors.white,),
@@ -120,6 +141,7 @@ class PlaylistShow extends StatelessWidget {
                               ],
                             ),
                             const SizedBox(height: 10),
+
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
@@ -128,10 +150,19 @@ class PlaylistShow extends StatelessWidget {
                                   iconSize: 65,
                                   onPressed: () {},
                                 ),
-                                const SizedBox(
+
+                                SizedBox(
                                   width: 220,
-                                  child: Text('makapaka',style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w500),
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: const [
+                                      Text('makapaka',style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w500,),
+                                      ),
+                                      Text('makapaka',style: TextStyle(fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),
+                                      ),
+                                    ],
                                   ),
+
                                 ),
                                 IconButton(
                                     icon: const Icon(Icons.more_vert_rounded, size: 25,color: Colors.white,),
@@ -140,6 +171,7 @@ class PlaylistShow extends StatelessWidget {
                               ],
                             ),
                             const SizedBox(height: 10),
+
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
@@ -148,10 +180,19 @@ class PlaylistShow extends StatelessWidget {
                                   iconSize: 65,
                                   onPressed: () {},
                                 ),
-                                const SizedBox(
+
+                                SizedBox(
                                   width: 220,
-                                  child: Text('makapaka',style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w500),
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: const [
+                                      Text('makapaka',style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w500,),
+                                      ),
+                                      Text('makapaka',style: TextStyle(fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),
+                                      ),
+                                    ],
                                   ),
+
                                 ),
                                 IconButton(
                                     icon: const Icon(Icons.more_vert_rounded, size: 25,color: Colors.white,),
@@ -160,6 +201,7 @@ class PlaylistShow extends StatelessWidget {
                               ],
                             ),
                             const SizedBox(height: 10),
+
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
@@ -168,10 +210,19 @@ class PlaylistShow extends StatelessWidget {
                                   iconSize: 65,
                                   onPressed: () {},
                                 ),
-                                const SizedBox(
+
+                                SizedBox(
                                   width: 220,
-                                  child: Text('makapaka',style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w500),
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: const [
+                                      Text('makapaka',style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w500,),
+                                      ),
+                                      Text('makapaka',style: TextStyle(fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),
+                                      ),
+                                    ],
                                   ),
+
                                 ),
                                 IconButton(
                                     icon: const Icon(Icons.more_vert_rounded, size: 25,color: Colors.white,),
@@ -179,7 +230,7 @@ class PlaylistShow extends StatelessWidget {
                                 )
                               ],
                             ),
-                            const SizedBox(height: 20),
+                            const SizedBox(height: 10),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: const [
