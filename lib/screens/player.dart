@@ -21,6 +21,7 @@ class PlayerState extends State<Player> {
   bool _shuffle = false;
   RepeatType _repeatType = RepeatType.none;
   bool _favorite = false;
+  Duration _progress = Duration.zero;
 
   void changeRepeatType() {
     setState(() {
@@ -69,15 +70,17 @@ class PlayerState extends State<Player> {
           Text('tytuł', style: textTheme.headline1),
           SizedBox(height: padding / 2),
           Text('autor', style: textTheme.subtitle1),
-          const Padding(
-            padding: EdgeInsets.fromLTRB(32, 16, 32, 4),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(32, 16, 32, 4),
             child: ProgressBar(
-              progress: Duration(milliseconds: 1000),
-              total: Duration(milliseconds: 5000),
+              progress: _progress,
+              total: const Duration(minutes: 4, seconds: 20),
               timeLabelLocation: TimeLabelLocation.sides,
               progressBarColor: Colors.white,
               baseBarColor: Colors.grey,
               thumbColor: Colors.white,
+              onSeek: (duration) => setState(() => _progress = duration),
+              onDragUpdate: (details) => setState(() => _progress = details.timeStamp),
             ),
           ),
           Row(
