@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'home.dart';
 
 class PlaylistShow extends StatelessWidget {
   const PlaylistShow({super.key});
@@ -17,10 +16,7 @@ class PlaylistShow extends StatelessWidget {
                 leading: IconButton(
                   icon: const Icon(Icons.arrow_back, size: 25,),
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const Home()),
-                    );
+                    Navigator.pop(context);
                   },
                 ),
                 actions: [
@@ -93,9 +89,23 @@ class PlaylistShow extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 IconButton(
-                                  icon: Image.asset('assets/Cover-13v4-small.jpg'),
+                                  splashRadius: 45,
+                                  icon: Container(
+                                      decoration: const BoxDecoration(
+                                        color: Colors.teal,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.white,
+                                            blurRadius: 4, // Shadow position
+                                          ),
+                                        ],
+                                      ),
+                                      child: Image.asset('assets/Cover-13v4-small.jpg')
+                                  ),
                                   iconSize: 65,
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.pushNamed(context,'Home');
+                                  },
                                 ),
 
                                 SizedBox(
@@ -123,9 +133,23 @@ class PlaylistShow extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 IconButton(
-                                  icon: Image.asset('assets/Cover-13v4-small.jpg'),
+                                  splashRadius: 45,
+                                  icon: Container(
+                                      decoration: const BoxDecoration(
+                                        color: Colors.teal,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.white,
+                                            blurRadius: 4, // Shadow position
+                                          ),
+                                        ],
+                                    ),
+                                      child: Image.asset('assets/Cover-13v4-small.jpg')
+                                  ),
                                   iconSize: 65,
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.pushNamed(context,'Home');
+                                  },
                                 ),
 
                                 SizedBox(
@@ -153,9 +177,23 @@ class PlaylistShow extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 IconButton(
-                                  icon: Image.asset('assets/Cover-13v4-small.jpg'),
+                                  splashRadius: 45,
+                                  icon: Container(
+                                      decoration: const BoxDecoration(
+                                        color: Colors.teal,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.white,
+                                            blurRadius: 4, // Shadow position
+                                          ),
+                                        ],
+                                      ),
+                                      child: Image.asset('assets/Cover-13v4-small.jpg')
+                                  ),
                                   iconSize: 65,
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.pushNamed(context,'Home');
+                                  },
                                 ),
 
                                 SizedBox(
@@ -183,9 +221,23 @@ class PlaylistShow extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 IconButton(
-                                  icon: Image.asset('assets/Cover-13v4-small.jpg'),
+                                  splashRadius: 45,
+                                  icon: Container(
+                                      decoration: const BoxDecoration(
+                                        color: Colors.teal,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.white,
+                                            blurRadius: 4, // Shadow position
+                                          ),
+                                        ],
+                                      ),
+                                      child: Image.asset('assets/Cover-13v4-small.jpg')
+                                  ),
                                   iconSize: 65,
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.pushNamed(context,'Home');
+                                  },
                                 ),
 
                                 SizedBox(
@@ -213,9 +265,23 @@ class PlaylistShow extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 IconButton(
-                                  icon: Image.asset('assets/Cover-13v4-small.jpg'),
+                                  splashRadius: 45,
+                                  icon: Container(
+                                      decoration: const BoxDecoration(
+                                        color: Colors.teal,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.white,
+                                            blurRadius: 4, // Shadow position
+                                          ),
+                                        ],
+                                      ),
+                                      child: Image.asset('assets/Cover-13v4-small.jpg')
+                                  ),
                                   iconSize: 65,
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.pushNamed(context,'Home');
+                                  },
                                 ),
 
                                 SizedBox(
@@ -249,12 +315,34 @@ class PlaylistShow extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 IconButton(
-                                  icon: Image.asset('assets/Cover-13v4-small.jpg'),
+                                  icon: Container(
+                                      decoration: const BoxDecoration(
+                                        color: Colors.teal,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.white,
+                                            blurRadius: 4, // Shadow position
+                                          ),
+                                        ],
+                                      ),
+                                      child: Image.asset('assets/Cover-13v4-small.jpg')
+                                  ),
                                   iconSize: 150,
                                   onPressed: () {},
                                 ),
                                 IconButton(
-                                  icon: Image.asset('assets/Cover-13v4-small.jpg'),
+                                  icon: Container(
+                                      decoration: const BoxDecoration(
+                                        color: Colors.teal,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.white,
+                                            blurRadius: 4, // Shadow position
+                                          ),
+                                        ],
+                                      ),
+                                      child: Image.asset('assets/Cover-13v4-small.jpg')
+                                  ),
                                   iconSize: 150,
                                   onPressed: () {},
                                 ),
