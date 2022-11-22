@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:odtwarzacz/screens/player.dart';
+import 'package:odtwarzacz/widgets/miniplayer.dart';
+import 'package:odtwarzacz/widgets/track.dart';
 
 import 'screens/directories.dart';
 import 'screens/home.dart';
@@ -18,11 +20,12 @@ class MyApp extends StatelessWidget {
           .copyWith(scaffoldBackgroundColor: Colors.black)
           .copyWith(
               textTheme: const TextTheme(
-                headline1: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+            headline1: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
             headline2: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
             headline3: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             headline4: TextStyle(fontSize: 20),
             subtitle1: TextStyle(fontSize: 20, color: Colors.grey),
+                subtitle2: TextStyle(fontSize: 16, color: Colors.grey),
           ))
           .copyWith(
               bottomNavigationBarTheme: const BottomNavigationBarThemeData(
@@ -31,11 +34,7 @@ class MyApp extends StatelessWidget {
             selectedItemColor: Colors.white,
           )),
       themeMode: ThemeMode.dark,
-      initialRoute: '/player',
-      routes: {
-        '/': (context) => const Main(),
-        '/player': (context) => const Player(),
-      },
+      home: const Main(),
     );
   }
 }
@@ -49,11 +48,28 @@ class Main extends StatefulWidget {
 
 class MainState extends State<Main> {
   int _index = 0;
+  PlayerArguments? _args;
+
+  void notifyMiniPlayer(PlayerArguments args) {
+    setState(() {
+      _args!.updateWith(args);
+    });
+  }
+
+  void onTrackClick(BuildContext context, TrackData data) {
+    setState(() {
+      if (_args == null) {
+        _args = PlayerArguments(trackName: data.name, trackAuthor: data.author);
+      } else {
+        _args!.updateWith(PlayerArguments(trackName: data.name, trackAuthor: data.author));
+      }
+    });
+  }
 
   Widget _body() {
     switch (_index) {
       case 0:
-        return const Home();
+        return Home(onTrackClick: onTrackClick);
       case 1:
         return const Playlists();
       case 2:
@@ -63,12 +79,35 @@ class MainState extends State<Main> {
     }
   }
 
+  BottomSheet? _buildBottomSheet() {
+    if (_args == null) {
+      return null;
+    }
+
+    var args = _args!;
+    debugPrint('_buildBottomSheet: ${_args?.shuffle.toString()}');
+
+    return BottomSheet(
+      enableDrag: false,
+      onClosing: () {},
+      builder: (BuildContext context) {
+        debugPrint('BottomSheet builder: ${_args?.shuffle.toString()}');
+        return MiniPlayer(args: args, onTap: (BuildContext context, PlayerArguments args) {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => Player(args: args, notifyMiniPlayer: notifyMiniPlayer)));
+        });
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    debugPrint(_args?.shuffle.toString());
+
     return Scaffold(
       body: SafeArea(
         child: _body(),
       ),
+      bottomSheet: _buildBottomSheet(),
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: _index,
           onTap: (index) {
