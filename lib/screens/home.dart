@@ -21,10 +21,10 @@ class Home extends StatelessWidget {
         SizedBox(height: padding),
         CenteredText(
           'Szybki wybór',
-          style: textTheme.headline1,
+          style: textTheme.headline2,
         ),
         SizedBox(height: padding),
-        CenteredText('Ostatnio odtwarzane', style: textTheme.headline2),
+        CenteredText('Ostatnio odtwarzane', style: textTheme.headline3),
         SizedBox(height: padding),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
@@ -36,7 +36,7 @@ class Home extends StatelessWidget {
           )
         ),
         SizedBox(height: padding),
-        CenteredText('Playlisty', style: textTheme.headline2),
+        CenteredText('Playlisty', style: textTheme.headline3),
         SizedBox(height: padding),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,

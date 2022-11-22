@@ -18,10 +18,11 @@ class MyApp extends StatelessWidget {
           .copyWith(scaffoldBackgroundColor: Colors.black)
           .copyWith(
               textTheme: const TextTheme(
-            headline1: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
-            headline2: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            headline3: TextStyle(fontSize: 20),
-            subtitle1: TextStyle(color: Colors.grey),
+                headline1: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+            headline2: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+            headline3: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            headline4: TextStyle(fontSize: 20),
+            subtitle1: TextStyle(fontSize: 20, color: Colors.grey),
           ))
           .copyWith(
               bottomNavigationBarTheme: const BottomNavigationBarThemeData(
