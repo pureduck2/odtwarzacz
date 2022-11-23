@@ -80,10 +80,9 @@ class PlayerArguments {
 }
 
 class Player extends StatefulWidget {
-  const Player({super.key, required this.args, this.notifyMiniPlayer});
+  const Player({super.key, required this.args});
 
   final PlayerArguments args;
-  final void Function(PlayerArguments args)? notifyMiniPlayer;
 
   @override
   PlayerState createState() => PlayerState();
@@ -117,8 +116,6 @@ class PlayerState extends State<Player> {
     var trackAuthor = args.trackAuthor;
     var albumName = args.albumName ?? trackName;
 
-    debugPrint(_shuffle.toString());
-
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -127,14 +124,15 @@ class PlayerState extends State<Player> {
         backgroundColor: Colors.transparent,
         leading: IconButton(
             onPressed: () {
-              Navigator.pop(context);
-              widget.notifyMiniPlayer?.call(PlayerArguments(
-                  trackName: trackName,
-                  trackAuthor: trackAuthor,
-                  shuffle: _shuffle,
-                  repeatType: _repeatType,
-                  play: _play,
-                  progress: _progress));
+              Navigator.pop(
+                  context,
+                  PlayerArguments(
+                      trackName: trackName,
+                      trackAuthor: trackAuthor,
+                      shuffle: _shuffle,
+                      repeatType: _repeatType,
+                      play: _play,
+                      progress: _progress));
             },
             icon: const Icon(Icons.keyboard_arrow_down)),
         actions: [

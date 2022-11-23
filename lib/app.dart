@@ -50,12 +50,6 @@ class MainState extends State<Main> {
   int _index = 0;
   PlayerArguments? _args;
 
-  void notifyMiniPlayer(PlayerArguments args) {
-    setState(() {
-      _args!.updateWith(args);
-    });
-  }
-
   void onTrackClick(BuildContext context, TrackData data) {
     setState(() {
       if (_args == null) {
@@ -85,24 +79,18 @@ class MainState extends State<Main> {
     }
 
     var args = _args!;
-    debugPrint('_buildBottomSheet: ${_args?.shuffle.toString()}');
 
     return BottomSheet(
       enableDrag: false,
       onClosing: () {},
       builder: (BuildContext context) {
-        debugPrint('BottomSheet builder: ${_args?.shuffle.toString()}');
-        return MiniPlayer(args: args, onTap: (BuildContext context, PlayerArguments args) {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => Player(args: args, notifyMiniPlayer: notifyMiniPlayer)));
-        });
+        return MiniPlayer(args: args);
       },
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    debugPrint(_args?.shuffle.toString());
-
     return Scaffold(
       body: SafeArea(
         child: _body(),

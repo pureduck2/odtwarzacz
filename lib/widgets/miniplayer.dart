@@ -1,16 +1,15 @@
+import 'package:animations/animations.dart';
 import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:odtwarzacz/widgets/progressbarwrapper.dart';
-import 'package:odtwarzacz/widgets/track.dart';
 import 'package:odtwarzacz/screens/player.dart';
 
 import 'cover.dart';
 
 class MiniPlayer extends StatefulWidget {
-  const MiniPlayer({super.key, required this.args, this.onTap});
+  const MiniPlayer({super.key, required this.args});
 
   final PlayerArguments args;
-  final void Function(BuildContext context, PlayerArguments args)? onTap;
 
   @override
   MiniPlayerState createState() => MiniPlayerState();
@@ -25,6 +24,15 @@ class MiniPlayerState extends State<MiniPlayer> {
   bool _play = false;
   Duration _progress = Duration.zero;
 
+  void _update(PlayerArguments? args) {
+    if (args != null) {
+      _shuffle = args.shuffle!;
+      _repeatType = args.repeatType!;
+      _play = args.play!;
+      _progress = args.progress!;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     var textTheme = Theme.of(context).textTheme;
@@ -36,62 +44,65 @@ class MiniPlayerState extends State<MiniPlayer> {
       Text(author, style: textTheme.subtitle2)
     ];
 
-    return IntrinsicHeight(
-      child: InkWell(
-        onTap: () {
-          widget.onTap?.call(
-              context,
-              PlayerArguments(
-                  trackName: name,
-                  trackAuthor: author,
-                  shuffle: _shuffle,
-                  repeatType: _repeatType,
-                  play: _play,
-                  progress: _progress));
-        },
-        child: Column(
-          children: [
-            Row(
-              children: [
-                const Cover(),
-                const SizedBox(width: padding),
-                IntrinsicHeight(
-                  child: Column(
-                    children: columnChildren,
+    return OpenContainer<PlayerArguments>(
+      closedColor: Colors.transparent,
+      closedBuilder: (BuildContext context, VoidCallback _) {
+        return IntrinsicHeight(
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  const Cover(),
+                  const SizedBox(width: padding),
+                  IntrinsicHeight(
+                    child: Column(
+                      children: columnChildren,
+                    ),
                   ),
-                ),
-                const Spacer(),
-                IconButton(
-                  onPressed: () => setState(() => _shuffle = !_shuffle),
-                  icon: const Icon(Icons.shuffle),
-                  iconSize: iconSize,
-                  color: _shuffle ? Colors.white : Colors.grey,
-                ),
-                IconButton(
-                    onPressed: () =>
-                        setState(() => _repeatType = _repeatType.next()),
-                    icon: _repeatType.icon(),
+                  const Spacer(),
+                  IconButton(
+                    onPressed: () => setState(() => _shuffle = !_shuffle),
+                    icon: const Icon(Icons.shuffle),
                     iconSize: iconSize,
-                    color: _repeatType.color()),
-                IconButton(
-                  onPressed: () => setState(() => _play = !_play),
-                  icon: _play
-                      ? const Icon(Icons.pause)
-                      : const Icon(Icons.play_arrow),
-                  iconSize: iconSize,
-                ),
-              ],
-            ),
-            ProgressBarWrapper(
-              progress: _progress,
-              total: const Duration(minutes: 4, seconds: 20),
-              timeLabelLocation: TimeLabelLocation.none,
-              barHeight: 4.0,
-              thumbRadius: 0.0,
-            )
-          ],
-        ),
-      ),
+                    color: _shuffle ? Colors.white : Colors.grey,
+                  ),
+                  IconButton(
+                      onPressed: () =>
+                          setState(() => _repeatType = _repeatType.next()),
+                      icon: _repeatType.icon(),
+                      iconSize: iconSize,
+                      color: _repeatType.color()),
+                  IconButton(
+                    onPressed: () => setState(() => _play = !_play),
+                    icon: _play
+                        ? const Icon(Icons.pause)
+                        : const Icon(Icons.play_arrow),
+                    iconSize: iconSize,
+                  ),
+                ],
+              ),
+              ProgressBarWrapper(
+                progress: _progress,
+                total: const Duration(minutes: 4, seconds: 20),
+                timeLabelLocation: TimeLabelLocation.none,
+                barHeight: 4.0,
+                thumbRadius: 0.0,
+              )
+            ],
+          ),
+        );
+      },
+      openBuilder: (BuildContext context, VoidCallback _) {
+        return Player(
+            args: PlayerArguments(
+                trackName: name,
+                trackAuthor: author,
+                shuffle: _shuffle,
+                repeatType: _repeatType,
+                play: _play,
+                progress: _progress));
+      },
+      onClosed: _update,
     );
   }
 }
