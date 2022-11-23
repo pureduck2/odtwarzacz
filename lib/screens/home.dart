@@ -26,6 +26,17 @@ class Home extends StatelessWidget {
           style: textTheme.headline2,
         ),
         SizedBox(height: padding),
+        CenteredText('Playlisty', style: textTheme.headline3),
+        SizedBox(height: padding),
+        SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: ColumnList(
+              columnCount: 1,
+              children: List.generate(43, (index) {
+                return Album(name: '$index');
+              }),
+            )),
+        SizedBox(height: padding),
         CenteredText('Ostatnio odtwarzane', style: textTheme.headline3),
         SizedBox(height: padding),
         SingleChildScrollView(
@@ -37,17 +48,6 @@ class Home extends StatelessWidget {
                   data: TrackData(name: '$index', author: '$index'),
                   onTap: onTrackClick,
                 );
-              }),
-            )),
-        SizedBox(height: padding),
-        CenteredText('Playlisty', style: textTheme.headline3),
-        SizedBox(height: padding),
-        SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: ColumnList(
-              columnCount: 1,
-              children: List.generate(43, (index) {
-                return Album(name: '$index');
               }),
             )),
         SizedBox(height: padding)
