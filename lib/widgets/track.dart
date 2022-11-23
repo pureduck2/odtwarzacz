@@ -25,7 +25,7 @@ class Track extends StatelessWidget {
     var textTheme = Theme.of(context).textTheme;
     var columnChildren = [Text(name, style: textTheme.headline4), Text(author, style: textTheme.subtitle2)];
 
-    return GestureDetector(
+    return InkWell(
       onTap: () {
         onTap?.call(context, TrackData(name: name, author: author));
       },
