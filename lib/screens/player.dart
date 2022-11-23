@@ -135,12 +135,6 @@ class PlayerState extends State<Player> {
                       progress: _progress));
             },
             icon: const Icon(Icons.keyboard_arrow_down)),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.volume_up_sharp),
-          )
-        ],
       ),
       body: Center(
           child: Column(
