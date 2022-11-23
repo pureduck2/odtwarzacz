@@ -9,127 +9,148 @@ class PlaylistShow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-        child: Column(
+    return CustomScrollView(
+
+        slivers: [SliverAppBar(
+          pinned: true,
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back, size: 25,),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+          actions: [
+            IconButton(
+                icon: const Icon(Icons.add, size: 25,),
+                onPressed: () {
+                  Navigator.pushNamed(context,'PlaylistCreate');
+                }
+            ),],
+        ),SliverToBoxAdapter(
+          child: Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        const SizedBox(
-          height: 10,
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Container(
-              decoration: const BoxDecoration(
-                color: Colors.teal,
-                boxShadow: [
-                  BoxShadow(
+
+          const SizedBox(
+            height: 10,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Container(
+                decoration: const BoxDecoration(
+                  color: Colors.teal,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.white,
+                      blurRadius: 7, // Shadow position
+                    ),
+                  ],
+                ),
+                child: Image.asset(
+                  'assets/Cover-13v4-small.jpg',
+                  height: 200,
+                  width: 200,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: const [
+              Text(
+                'NAZWA PLAYLISTY',
+                style: TextStyle(
+                    fontSize: 25,
                     color: Colors.white,
-                    blurRadius: 7, // Shadow position
+                    fontWeight: FontWeight.w900),
+              )
+            ],
+          ),
+          const SizedBox(height: 10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              IconButton(
+                  icon: const Icon(
+                    Icons.compare_arrows_rounded,
+                    size: 30,
+                    color: Colors.white,
                   ),
-                ],
+                  onPressed: () {}),
+              const SizedBox(
+                width: 2,
               ),
-              child: Image.asset(
-                'assets/Cover-13v4-small.jpg',
-                height: 200,
-                width: 200,
+              IconButton(
+                  icon: const Icon(
+                    Icons.play_circle,
+                    size: 55,
+                    color: Colors.green,
+                  ),
+                  onPressed: () {}),
+              const SizedBox(
+                width: 30,
               ),
-            ),
-          ],
-        ),
-        const SizedBox(height: 10),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: const [
-            Text(
-              'NAZWA PLAYLISTY',
-              style: TextStyle(
-                  fontSize: 25,
-                  color: Colors.white,
-                  fontWeight: FontWeight.w900),
-            )
-          ],
-        ),
-        const SizedBox(height: 20),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            IconButton(
-                icon: const Icon(
-                  Icons.compare_arrows_rounded,
-                  size: 45,
-                  color: Colors.white,
-                ),
-                onPressed: () {}),
-            const SizedBox(
-              width: 10,
-            ),
-            IconButton(
-                icon: const Icon(
-                  Icons.play_circle,
-                  size: 55,
-                  color: Colors.green,
-                ),
-                onPressed: () {}),
-            const SizedBox(
-              width: 30,
-            ),
-          ],
-        ),
-        const SizedBox(height: 30),
-        WideTrack(data: TrackData(name: 'kuchenne', author: 'Korwin Mikke'), onTap: onTrackClick),
-        const SizedBox(height: 10),
-        WideTrack(data: TrackData(name: 'makapaka', author: 'makapaka'), onTap: onTrackClick),
-        const SizedBox(height: 10),
-        WideTrack(data: TrackData(name: 'makapaka', author: 'makapaka'), onTap: onTrackClick),
-        const SizedBox(height: 10),
-        WideTrack(data: TrackData(name: 'makapaka', author: 'makapaka'), onTap: onTrackClick),
-        const SizedBox(height: 10),
-        WideTrack(data: TrackData(name: 'makapaka', author: 'makapaka'), onTap: onTrackClick),
-        const SizedBox(height: 20),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            IconButton(
-              splashRadius: 95,
-              icon: Container(
-                  decoration: const BoxDecoration(
-                    color: Colors.teal,
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.white,
-                        blurRadius: 4, // Shadow position
-                      ),
-                    ],
-                  ),
-                  child: Image.asset('assets/Cover-13v4-small.jpg')),
-              iconSize: 150,
-              onPressed: () {
-                Navigator.pushNamed(context, 'PlaylistShow');
-              },
-            ),
-            IconButton(
-              splashRadius: 95,
-              icon: Container(
-                  decoration: const BoxDecoration(
-                    color: Colors.teal,
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.white,
-                        blurRadius: 4, // Shadow position
-                      ),
-                    ],
-                  ),
-                  child: Image.asset('assets/Cover-13v4-small.jpg')),
-              iconSize: 150,
-              onPressed: () {
-                Navigator.pushNamed(context, 'PlaylistShow');
-              },
-            ),
-          ],
-        ),
-        const SizedBox(height: 30),
+            ],
+          ),
+          const SizedBox(height: 30),
+          WideTrack(data: const TrackData(name: 'kuchenne', author: 'Korwin Mikke'), onTap: onTrackClick),
+          const SizedBox(height: 10),
+          WideTrack(data: const TrackData(name: 'makapaka', author: 'makapaka'), onTap: onTrackClick),
+          const SizedBox(height: 10),
+          WideTrack(data: const TrackData(name: 'makapaka', author: 'makapaka'), onTap: onTrackClick),
+          const SizedBox(height: 10),
+          WideTrack(data: const TrackData(name: 'makapaka', author: 'makapaka'), onTap: onTrackClick),
+          const SizedBox(height: 10),
+          WideTrack(data: const TrackData(name: 'makapaka', author: 'makapaka'), onTap: onTrackClick),
+          const SizedBox(height: 20),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              IconButton(
+                splashRadius: 95,
+                icon: Container(
+                    decoration: const BoxDecoration(
+                      color: Colors.teal,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.white,
+                          blurRadius: 4, // Shadow position
+                        ),
+                      ],
+                    ),
+                    child: Image.asset('assets/Cover-13v4-small.jpg')),
+                iconSize: 150,
+                onPressed: () {
+                  Navigator.pushNamed(context, 'PlaylistShow');
+                },
+              ),
+              IconButton(
+                splashRadius: 95,
+                icon: Container(
+                    decoration: const BoxDecoration(
+                      color: Colors.teal,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.white,
+                          blurRadius: 4, // Shadow position
+                        ),
+                      ],
+                    ),
+                    child: Image.asset('assets/Cover-13v4-small.jpg')),
+                iconSize: 150,
+                onPressed: () {
+                  Navigator.pushNamed(context, 'PlaylistShow');
+                },
+              ),
+            ],
+          ),
+          const SizedBox(height: 30),
       ],
-    ));
+    ),
+        )]);
   }
 }
