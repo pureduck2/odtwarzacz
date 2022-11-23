@@ -3,7 +3,9 @@ import 'package:odtwarzacz/widgets/track.dart';
 import 'package:odtwarzacz/widgets/widetrack.dart';
 
 class PlaylistShow extends StatelessWidget {
-  const PlaylistShow({super.key});
+  const PlaylistShow({super.key, this.onTrackClick});
+
+  final void Function(BuildContext context, TrackData data)? onTrackClick;
 
   @override
   Widget build(BuildContext context) {
@@ -75,15 +77,15 @@ class PlaylistShow extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 30),
-        const WideTrack(data: TrackData(name: 'makapaka', author: 'makapaka')),
+        WideTrack(data: TrackData(name: 'kuchenne', author: 'Korwin Mikke'), onTap: onTrackClick),
         const SizedBox(height: 10),
-        const WideTrack(data: TrackData(name: 'makapaka', author: 'makapaka')),
+        WideTrack(data: TrackData(name: 'makapaka', author: 'makapaka'), onTap: onTrackClick),
         const SizedBox(height: 10),
-        const WideTrack(data: TrackData(name: 'makapaka', author: 'makapaka')),
+        WideTrack(data: TrackData(name: 'makapaka', author: 'makapaka'), onTap: onTrackClick),
         const SizedBox(height: 10),
-        const WideTrack(data: TrackData(name: 'makapaka', author: 'makapaka')),
+        WideTrack(data: TrackData(name: 'makapaka', author: 'makapaka'), onTap: onTrackClick),
         const SizedBox(height: 10),
-        const WideTrack(data: TrackData(name: 'makapaka', author: 'makapaka')),
+        WideTrack(data: TrackData(name: 'makapaka', author: 'makapaka'), onTap: onTrackClick),
         const SizedBox(height: 20),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
