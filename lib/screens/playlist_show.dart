@@ -27,347 +27,281 @@ class PlaylistShow extends StatelessWidget {
                   ),],
               ),
             body: Padding(padding: const EdgeInsets.all(2),
-                child: Container(
-                    decoration: const BoxDecoration(
-                        gradient: LinearGradient(
-                          colors: [
-                            Colors.white10,
-                            Colors.white12,
-                            Colors.black12,
-                            Colors.black26,
-                            Colors.black38,
-                            Colors.black45,
-                            Colors.black54,
-                            Colors.black87,
-                            Colors.black,
-                          ],
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                        )
-                    ),
-
-                    child: SingleChildScrollView(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
+                child: SingleChildScrollView(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        const SizedBox(height: 10,),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            const SizedBox(height: 10,),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Container(
+                            Container(
+                              decoration: const BoxDecoration(
+                                color: Colors.teal,
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.white,
+                                    blurRadius: 7, // Shadow position
+                                  ),
+                                ],
+                              ),
+                              child: Image.asset('assets/Cover-13v4-small.jpg',
+                                height: 200,
+                                width: 200,
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 10),
+
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: const [
+                            Text('NAZWA PLAYLISTY',style: TextStyle(fontSize: 25,color: Colors.white,fontWeight: FontWeight.w900),)
+                          ],
+                        ),
+                        const SizedBox(height: 20),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            IconButton(
+                                icon: const Icon(Icons.compare_arrows_rounded, size: 45,color: Colors.white,),
+                                onPressed: () {}
+                            ),
+                            const SizedBox(width: 10,),
+                            IconButton(
+                                icon: const Icon(Icons.play_circle, size: 55,color: Colors.green,),
+                                onPressed: () {}
+                            ),
+                            const SizedBox(width: 30,),
+                          ],
+                        ),
+                        const SizedBox(height: 30),
+
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            IconButton(
+                              splashRadius: 45,
+                              icon: Image.asset('assets/Cover-13v4-small.jpg'),
+                              iconSize: 55,
+                              onPressed: () {
+                                Navigator.pushNamed(context,'Home');
+                              },
+                            ),
+
+
+                            SizedBox(
+                              width: 220,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: const [
+                                  Text('makapaka',style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w500,),
+                                  ),
+                                  Text('gienek',style: TextStyle(fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),
+                                  ),
+                                ],
+                              ),
+
+                            ),
+                            const Opacity(opacity: 0.8),
+                            IconButton(
+                                icon: const Icon(Icons.more_vert_rounded, size: 25,color: Colors.white,),
+                                onPressed: () {}
+                            )
+                          ],
+                        ),
+                        const SizedBox(height: 10),
+
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            IconButton(
+                              splashRadius: 45,
+                              icon: Image.asset('assets/Cover-13v4-small.jpg'),
+                              iconSize: 55,
+                              onPressed: () {
+                                Navigator.pushNamed(context,'Home');
+                              },
+                            ),
+
+
+                            SizedBox(
+                              width: 220,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: const [
+                                  Text('makapaka',style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w500,),
+                                  ),
+                                  Text('makapaka',style: TextStyle(fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),
+                                  ),
+                                ],
+                              ),
+
+                            ),
+
+                            
+                            const Opacity(opacity: 0.8),
+                            IconButton(
+                                icon: const Icon(Icons.more_vert_rounded, size: 25,color: Colors.white,),
+                                onPressed: () {}
+                            )
+                          ],
+                        ),
+                        const SizedBox(height: 10),
+
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            IconButton(
+                              splashRadius: 45,
+                              icon: Image.asset('assets/Cover-13v4-small.jpg'),
+                              iconSize: 55,
+                              onPressed: () {
+                                Navigator.pushNamed(context,'Home');
+                              },
+                            ),
+
+
+                            SizedBox(
+                              width: 220,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: const [
+                                  Text('makapaka',style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w500,),
+                                  ),
+                                  Text('makapaka',style: TextStyle(fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),
+                                  ),
+                                ],
+                              ),
+
+                            ),
+
+                            const Opacity(opacity: 0.8),
+                            IconButton(
+                                icon: const Icon(Icons.more_vert_rounded, size: 25,color: Colors.white,),
+                                onPressed: () {}
+                            )
+                          ],
+                        ),
+                        const SizedBox(height: 10),
+
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            IconButton(
+                              splashRadius: 45,
+                              icon: Image.asset('assets/Cover-13v4-small.jpg'),
+                              iconSize: 55,
+                              onPressed: () {
+                                Navigator.pushNamed(context,'Home');
+                              },
+                            ),
+
+
+                            SizedBox(
+                              width: 220,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: const [
+                                  Text('makapaka',style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w500,),
+                                  ),
+                                  Text('makapaka',style: TextStyle(fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),
+                                  ),
+                                ],
+                              ),
+
+                            ),
+
+                            const Opacity(opacity: 0.8),
+                            IconButton(
+                                icon: const Icon(Icons.more_vert_rounded, size: 25,color: Colors.white,),
+                                onPressed: () {}
+                            )
+                          ],
+                        ),
+                        const SizedBox(height: 10),
+
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            IconButton(
+                              splashRadius: 45,
+                              icon: Image.asset('assets/Cover-13v4-small.jpg'),
+                              iconSize: 55,
+                              onPressed: () {
+                                Navigator.pushNamed(context,'Home');
+                              },
+                            ),
+
+                            SizedBox(
+                              width: 220,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: const [
+                                  Text('makapaka',style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w500,),
+                                  ),
+                                  Text('makapaka',style: TextStyle(fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),
+                                  ),
+                                ],
+                              ),
+
+                            ),
+
+                            const Opacity(opacity: 0.8),
+                            IconButton(
+                                icon: const Icon(Icons.more_vert_rounded, size: 25,color: Colors.white,),
+                                onPressed: () {}
+                            )
+                          ],
+                        ),
+                        const SizedBox(height: 20),
+
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            IconButton(
+                              splashRadius: 95,
+                              icon: Container(
                                   decoration: const BoxDecoration(
                                     color: Colors.teal,
                                     boxShadow: [
                                       BoxShadow(
                                         color: Colors.white,
-                                        blurRadius: 7, // Shadow position
+                                        blurRadius: 4, // Shadow position
                                       ),
                                     ],
                                   ),
-                                  child: Image.asset('assets/Cover-13v4-small.jpg',
-                                    height: 200,
-                                    width: 200,
-                                  ),
-                                ),
-                              ],
+                                  child: Image.asset('assets/Cover-13v4-small.jpg')
+                              ),
+                              iconSize: 150,
+                              onPressed: () {
+                                Navigator.pushNamed(context,'PlaylistShow');
+                              },
                             ),
-                            const SizedBox(height: 10),
-
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: const [
-                                Text('NAZWA PLAYLISTY',style: TextStyle(fontSize: 25,color: Colors.white,fontWeight: FontWeight.w900),)
-                              ],
-                            ),
-                            const SizedBox(height: 20),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                IconButton(
-                                    icon: const Icon(Icons.compare_arrows_rounded, size: 55,color: Colors.white,),
-                                    onPressed: () {}
-                                ),
-                                const SizedBox(width: 30,),
-                                IconButton(
-                                    icon: const Icon(Icons.play_circle, size: 55,color: Colors.green,),
-                                    onPressed: () {}
-                                ),
-                              ],
-                            ),
-                            const SizedBox(height: 30),
-
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                IconButton(
-                                  splashRadius: 45,
-                                  icon: Container(
-                                      decoration: const BoxDecoration(
-                                        color: Colors.teal,
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color: Colors.white,
-                                            blurRadius: 4, // Shadow position
-                                          ),
-                                        ],
-                                      ),
-                                      child: Image.asset('assets/Cover-13v4-small.jpg')
-                                  ),
-                                  iconSize: 65,
-                                  onPressed: () {
-                                    Navigator.pushNamed(context,'Home');
-                                  },
-                                ),
-
-                                SizedBox(
-                                  width: 220,
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: const [
-                                      Text('makapaka',style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w500,),
-                                      ),
-                                      Text('gienek',style: TextStyle(fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),
+                            IconButton(
+                              splashRadius: 95,
+                              icon: Container(
+                                  decoration: const BoxDecoration(
+                                    color: Colors.teal,
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.white,
+                                        blurRadius: 4, // Shadow position
                                       ),
                                     ],
                                   ),
-
-                                ),
-                                IconButton(
-                                    icon: const Icon(Icons.more_vert_rounded, size: 25,color: Colors.white,),
-                                    onPressed: () {}
-                                )
-                              ],
+                                  child: Image.asset('assets/Cover-13v4-small.jpg')
+                              ),
+                              iconSize: 150,
+                              onPressed: () {
+                                Navigator.pushNamed(context,'PlaylistShow');
+                              },
                             ),
-                            const SizedBox(height: 10),
-
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                IconButton(
-                                  splashRadius: 45,
-                                  icon: Container(
-                                      decoration: const BoxDecoration(
-                                        color: Colors.teal,
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color: Colors.white,
-                                            blurRadius: 4, // Shadow position
-                                          ),
-                                        ],
-                                    ),
-                                      child: Image.asset('assets/Cover-13v4-small.jpg')
-                                  ),
-                                  iconSize: 65,
-                                  onPressed: () {
-                                    Navigator.pushNamed(context,'Home');
-                                  },
-                                ),
-
-                                SizedBox(
-                                  width: 220,
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: const [
-                                      Text('makapaka',style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w500,),
-                                      ),
-                                      Text('makapaka',style: TextStyle(fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),
-                                      ),
-                                    ],
-                                  ),
-
-                                ),
-                                IconButton(
-                                    icon: const Icon(Icons.more_vert_rounded, size: 25,color: Colors.white,),
-                                    onPressed: () {}
-                                )
-                              ],
-                            ),
-                            const SizedBox(height: 10),
-
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                IconButton(
-                                  splashRadius: 45,
-                                  icon: Container(
-                                      decoration: const BoxDecoration(
-                                        color: Colors.teal,
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color: Colors.white,
-                                            blurRadius: 4, // Shadow position
-                                          ),
-                                        ],
-                                      ),
-                                      child: Image.asset('assets/Cover-13v4-small.jpg')
-                                  ),
-                                  iconSize: 65,
-                                  onPressed: () {
-                                    Navigator.pushNamed(context,'Home');
-                                  },
-                                ),
-
-                                SizedBox(
-                                  width: 220,
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: const [
-                                      Text('makapaka',style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w500,),
-                                      ),
-                                      Text('makapaka',style: TextStyle(fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),
-                                      ),
-                                    ],
-                                  ),
-
-                                ),
-                                IconButton(
-                                    icon: const Icon(Icons.more_vert_rounded, size: 25,color: Colors.white,),
-                                    onPressed: () {}
-                                )
-                              ],
-                            ),
-                            const SizedBox(height: 10),
-
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                IconButton(
-                                  splashRadius: 45,
-                                  icon: Container(
-                                      decoration: const BoxDecoration(
-                                        color: Colors.teal,
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color: Colors.white,
-                                            blurRadius: 4, // Shadow position
-                                          ),
-                                        ],
-                                      ),
-                                      child: Image.asset('assets/Cover-13v4-small.jpg')
-                                  ),
-                                  iconSize: 65,
-                                  onPressed: () {
-                                    Navigator.pushNamed(context,'Home');
-                                  },
-                                ),
-
-                                SizedBox(
-                                  width: 220,
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: const [
-                                      Text('makapaka',style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w500,),
-                                      ),
-                                      Text('makapaka',style: TextStyle(fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),
-                                      ),
-                                    ],
-                                  ),
-
-                                ),
-                                IconButton(
-                                    icon: const Icon(Icons.more_vert_rounded, size: 25,color: Colors.white,),
-                                    onPressed: () {}
-                                )
-                              ],
-                            ),
-                            const SizedBox(height: 10),
-
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                IconButton(
-                                  splashRadius: 45,
-                                  icon: Container(
-                                      decoration: const BoxDecoration(
-                                        color: Colors.teal,
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color: Colors.white,
-                                            blurRadius: 4, // Shadow position
-                                          ),
-                                        ],
-                                      ),
-                                      child: Image.asset('assets/Cover-13v4-small.jpg')
-                                  ),
-                                  iconSize: 65,
-                                  onPressed: () {
-                                    Navigator.pushNamed(context,'Home');
-                                  },
-                                ),
-
-                                SizedBox(
-                                  width: 220,
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: const [
-                                      Text('makapaka',style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w500,),
-                                      ),
-                                      Text('makapaka',style: TextStyle(fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),
-                                      ),
-                                    ],
-                                  ),
-
-                                ),
-                                IconButton(
-                                    icon: const Icon(Icons.more_vert_rounded, size: 25,color: Colors.white,),
-                                    onPressed: () {}
-                                )
-                              ],
-                            ),
-                            const SizedBox(height: 10),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: const [
-                                Text('Polecamy również',style: TextStyle(fontSize: 25,color: Colors.white,fontWeight: FontWeight.w600),)
-                              ],
-                            ),
-                            const SizedBox(height: 20),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                IconButton(
-                                  splashRadius: 95,
-                                  icon: Container(
-                                      decoration: const BoxDecoration(
-                                        color: Colors.teal,
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color: Colors.white,
-                                            blurRadius: 4, // Shadow position
-                                          ),
-                                        ],
-                                      ),
-                                      child: Image.asset('assets/Cover-13v4-small.jpg')
-                                  ),
-                                  iconSize: 150,
-                                  onPressed: () {
-                                    Navigator.pushNamed(context,'PlaylistShow');
-                                  },
-                                ),
-                                IconButton(
-                                  splashRadius: 95,
-                                  icon: Container(
-                                      decoration: const BoxDecoration(
-                                        color: Colors.teal,
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color: Colors.white,
-                                            blurRadius: 4, // Shadow position
-                                          ),
-                                        ],
-                                      ),
-                                      child: Image.asset('assets/Cover-13v4-small.jpg')
-                                  ),
-                                  iconSize: 150,
-                                  onPressed: () {
-                                    Navigator.pushNamed(context,'PlaylistShow');
-                                  },
-                                ),
-                              ],
-                            ),
-                            const SizedBox(height: 30),
                           ],
-                        )
+                        ),
+                        const SizedBox(height: 30),
+                      ],
                     )
                 )
             )
