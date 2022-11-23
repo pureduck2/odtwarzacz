@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
-class PlaylistCreate extends StatelessWidget {
+class PlaylistCreate extends StatefulWidget {
   const PlaylistCreate ({super.key});
+
+  @override
+  State<PlaylistCreate> createState() => _PlaylistCreateState();
+}
+
+class _PlaylistCreateState extends State<PlaylistCreate> {
+  final _textController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -9,44 +16,44 @@ class PlaylistCreate extends StatelessWidget {
 
         home: Scaffold(
             backgroundColor: Colors.black,
-            appBar: PreferredSize(preferredSize: const Size.fromHeight(65.0),
-                child: AppBar(
-                  backgroundColor: Colors.black,
-                  centerTitle: true,
-                  title: const Text(
-                    'Tworzenie playlisty',
+            appBar: AppBar(
+              backgroundColor: Colors.black,
+              centerTitle: true,
+              title: const Text(
+                'Tworzenie playlisty',
+              ),
+              leading: IconButton(
+                icon: const Icon(Icons.arrow_back, size: 35,),
+                onPressed: () {},
+              ),
+            ), body: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children:  [
+              TextField(
+                controller: _textController,
+                decoration: const InputDecoration(
+                  hintText: 'Nazwa',
+                  hintStyle: TextStyle(
+                    color: Colors.white70,
+                    fontSize: 18,
+                    fontStyle: FontStyle.italic,
                   ),
-                  leading: IconButton(
-                    icon: const Icon(Icons.arrow_back, size: 35,),
-                    onPressed: () {},
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(
+                      width: 3, color: Colors.white
+                    ),
                   ),
-                )
-            )
-        )
+          ),
+                style: const TextStyle(
+                  color: Colors.white,
+                ),
+        ),
+            ],
+          ),
+        ),
+        ),
     );
   }
-}
-
-final _textController = TextEditingController();
-
-
-@override
-Widget build(BuildContext context) {
-  return Scaffold(
-    body: Padding(
-      padding: const EdgeInsets.all(20.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: const [
-          TextField(
-            controller: _textController(),
-            decoration: InputDecoration(
-              hintText: 'Nazwa',
-              border:  OutlineInputBorder(),
-            ),
-          ),
-        ],
-      ),
-    ),
-  );
 }
