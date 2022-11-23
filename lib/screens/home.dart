@@ -20,10 +20,17 @@ class Home extends StatelessWidget {
         child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        SizedBox(height: padding),
-        CenteredText(
-          'Szybki wybór',
-          style: textTheme.headline2,
+        AppBar(
+          title: Text('Szybki wybór', style: textTheme.headline2,),
+          centerTitle: true,
+          backgroundColor: Colors.transparent,
+          actions: [
+            IconButton(
+              onPressed: () {  },
+              icon: Icon(Icons.search),
+              iconSize: 32,
+            )
+          ],
         ),
         SizedBox(height: padding),
         CenteredText('Playlisty', style: textTheme.headline3),
