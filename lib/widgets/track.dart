@@ -23,7 +23,7 @@ class Track extends StatelessWidget {
     var author = data.author;
 
     var textTheme = Theme.of(context).textTheme;
-    var columnChildren = [Text(name, style: textTheme.headline4), Text(author)];
+    var columnChildren = [Text(name, style: textTheme.headline4), Text(author, style: textTheme.subtitle2)];
 
     return GestureDetector(
       onTap: () {
