@@ -6,11 +6,12 @@ class Cover extends StatelessWidget {
   const Cover(
       {super.key,
       this.color = Colors.blue,
-      this.constraints =
-          const BoxConstraints(maxWidth: 64.0, maxHeight: 64.0)});
+      this.constraints = const BoxConstraints(maxWidth: 64.0, maxHeight: 64.0),
+      this.image});
 
   final Color color;
   final BoxConstraints? constraints;
+  final Image? image;
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +19,6 @@ class Cover extends StatelessWidget {
         padding: const EdgeInsets.all(4),
         // decoration: BoxDecoration(color: color, borderRadius: borderRadius),
         constraints: constraints,
-        child: Image.asset('assets/test.png'));
+        child: image ?? Image.asset('assets/test.png'));
   }
 }
