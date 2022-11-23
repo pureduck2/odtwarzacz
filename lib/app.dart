@@ -57,7 +57,14 @@ class Main extends StatefulWidget {
 class MainState extends State<Main> {
   int _index = 0;
   Screen _screen = Screen.Home;
+  Screen? _lastScreen;
   PlayerArguments? _args;
+
+  void goBack() {
+    setState(() {
+      _screen = _lastScreen ?? Screen.Home;
+    });
+  }
 
   void onTrackClick(BuildContext context, TrackData data) {
     setState(() {
@@ -71,6 +78,7 @@ class MainState extends State<Main> {
 
   void onAlbumClick(BuildContext context, String albumName) {
     setState(() {
+      _lastScreen = _screen;
       _screen = Screen.PlaylistsShow;
       _index = 1;
     });
@@ -83,7 +91,7 @@ class MainState extends State<Main> {
       case Screen.Playlists:
         return Playlists(onAlbumClick: onAlbumClick);
       case Screen.PlaylistsShow:
-        return PlaylistShow(onTrackClick: onTrackClick);
+        return PlaylistShow(onTrackClick: onTrackClick, onExit: goBack);
       case Screen.Directories:
         return const Directories();
       default:
