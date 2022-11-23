@@ -40,8 +40,16 @@ class MiniPlayerState extends State<MiniPlayer> {
     var name = widget.args.trackName;
     var author = widget.args.trackAuthor;
     var columnChildren = [
-      Text(name, style: textTheme.headline4),
-      Text(author, style: textTheme.subtitle2)
+      Text(name,
+          style: textTheme.headline4,
+          overflow: TextOverflow.fade,
+          softWrap: false,
+          maxLines: 1),
+      Text(author,
+          style: textTheme.subtitle2,
+          overflow: TextOverflow.fade,
+          softWrap: false,
+          maxLines: 1)
     ];
 
     return OpenContainer<PlayerArguments>(
@@ -54,12 +62,12 @@ class MiniPlayerState extends State<MiniPlayer> {
                 children: [
                   const Cover(),
                   const SizedBox(width: padding),
-                  IntrinsicHeight(
+                  Expanded(
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: columnChildren,
                     ),
                   ),
-                  const Spacer(),
                   IconButton(
                     onPressed: () => setState(() => _shuffle = !_shuffle),
                     icon: const Icon(Icons.shuffle),
