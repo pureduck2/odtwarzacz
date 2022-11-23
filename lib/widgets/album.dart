@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:odtwarzacz/screens/playlist_show.dart';
 
 import 'cover.dart';
 

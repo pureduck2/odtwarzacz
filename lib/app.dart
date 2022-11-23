@@ -9,10 +9,10 @@ import 'screens/home.dart';
 import 'screens/playlists.dart';
 
 enum Screen {
-  Home,
-  Playlists,
-  PlaylistsShow,
-  Directories
+  home,
+  playlists,
+  playlistsShow,
+  directories
 }
 
 class MyApp extends StatelessWidget {
@@ -57,13 +57,13 @@ class Main extends StatefulWidget {
 class MainState extends State<Main> {
   int _index = 0;
   int? _lastIndex;
-  Screen _screen = Screen.Home;
+  Screen _screen = Screen.home;
   Screen? _lastScreen;
   PlayerArguments? _args;
 
   void goBack() {
     setState(() {
-      _screen = _lastScreen ?? Screen.Home;
+      _screen = _lastScreen ?? Screen.home;
       _index = _lastIndex ?? 0;
     });
   }
@@ -82,20 +82,20 @@ class MainState extends State<Main> {
     setState(() {
       _lastIndex = _index;
       _lastScreen = _screen;
-      _screen = Screen.PlaylistsShow;
+      _screen = Screen.playlistsShow;
       _index = 1;
     });
   }
 
   Widget _body() {
     switch (_screen) {
-      case Screen.Home:
+      case Screen.home:
         return Home(onTrackClick: onTrackClick, onAlbumClick: onAlbumClick);
-      case Screen.Playlists:
+      case Screen.playlists:
         return Playlists(onAlbumClick: onAlbumClick);
-      case Screen.PlaylistsShow:
+      case Screen.playlistsShow:
         return PlaylistShow(onTrackClick: onTrackClick, onExit: goBack);
-      case Screen.Directories:
+      case Screen.directories:
         return const Directories();
       default:
         throw UnimplementedError();
@@ -107,13 +107,13 @@ class MainState extends State<Main> {
       _index = index;
       switch (_index) {
         case 0:
-          _screen = Screen.Home;
+          _screen = Screen.home;
           break;
         case 1:
-          _screen = Screen.Playlists;
+          _screen = Screen.playlists;
           break;
         case 2:
-          _screen = Screen.Directories;
+          _screen = Screen.directories;
           break;
       }
     });

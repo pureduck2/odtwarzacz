@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:odtwarzacz/screens/playlist_show.dart';
 import 'package:odtwarzacz/widgets/album.dart';
-import 'package:odtwarzacz/widgets/cover.dart';
 import 'package:odtwarzacz/widgets/column_list.dart';
 import 'package:odtwarzacz/widgets/track.dart';
 
