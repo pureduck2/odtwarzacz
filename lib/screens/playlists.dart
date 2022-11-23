@@ -60,7 +60,7 @@ class Playlists extends StatelessWidget {
                     const SizedBox(height: 15,),
                     Album(
                       image: Image.network(
-                          'https://media.pitchfork.com/photos/5c1023aea32fbc2d77bb9a2e/1:1/w_600/icarus%20falls_zayn.jpg'),
+                          'https://upload.wikimedia.org/wikipedia/en/a/ac/Louis_Tomlinson_-_Walls.png'),
                       name: 'Playlista 3',
                       constraints: const BoxConstraints(maxWidth: 150, maxHeight: 150),
                       onTap: onAlbumClick,
@@ -94,7 +94,7 @@ class Playlists extends StatelessWidget {
                     const SizedBox(height: 15,),
                     Album(
                       image: Image.network(
-                          'https://media.pitchfork.com/photos/5c1023aea32fbc2d77bb9a2e/1:1/w_600/icarus%20falls_zayn.jpg'),
+                          'https://linkstorage.linkfire.com/medialinks/images/7262305f-c7b7-433c-b0f7-a8c5af658eab/artwork-440x440.jpg'),
                       name: 'Playlista 2',
                       constraints: const BoxConstraints(maxWidth: 150, maxHeight: 150),
                       onTap: onAlbumClick,
@@ -110,7 +110,7 @@ class Playlists extends StatelessWidget {
                     const SizedBox(height: 15,),
                     Album(
                       image: Image.network(
-                          'https://media.pitchfork.com/photos/5c1023aea32fbc2d77bb9a2e/1:1/w_600/icarus%20falls_zayn.jpg'),
+                          'https://a.allegroimg.com/original/11f012/cc736e354e94b6837eaf383bc3f9/Dua-Lipa-Future-Nostalgia-The-Moonlight-Edition-CD'),
                       name: 'Playlista 4',
                       constraints: const BoxConstraints(maxWidth: 150, maxHeight: 150),
                       onTap: onAlbumClick,
