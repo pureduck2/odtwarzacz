@@ -81,7 +81,7 @@ class MainState extends State<Main> {
       case Screen.Home:
         return Home(onTrackClick: onTrackClick, onAlbumClick: onAlbumClick);
       case Screen.Playlists:
-        return const Playlists();
+        return Playlists(onAlbumClick: onAlbumClick);
       case Screen.PlaylistsShow:
         return PlaylistShow(onTrackClick: onTrackClick);
       case Screen.Directories:
