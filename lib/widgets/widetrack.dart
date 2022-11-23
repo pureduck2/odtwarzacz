@@ -21,6 +21,7 @@ class WideTrack extends StatelessWidget {
 
     return InkWell(
       onTap: () {
+        debugPrint('nikodem');
         onTap?.call(context, TrackData(name: name, author: author));
       },
       child: Row(
