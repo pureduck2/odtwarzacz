@@ -3,14 +3,14 @@ import 'package:odtwarzacz/widgets/track.dart';
 import 'package:odtwarzacz/widgets/widetrack.dart';
 
 class PlaylistShow extends StatelessWidget {
-  const PlaylistShow({super.key, this.onTrackClick});
+  const PlaylistShow({super.key, this.onTrackClick, this.onExit});
 
   final void Function(BuildContext context, TrackData data)? onTrackClick;
+  final void Function()? onExit;
 
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
-
         slivers: [SliverAppBar(
           pinned: true,
           elevation: 0,
@@ -18,7 +18,7 @@ class PlaylistShow extends StatelessWidget {
           leading: IconButton(
             icon: const Icon(Icons.arrow_back, size: 25,),
             onPressed: () {
-              Navigator.pop(context);
+              onExit?.call();
             },
           ),
           actions: [
@@ -31,8 +31,7 @@ class PlaylistShow extends StatelessWidget {
         ),SliverToBoxAdapter(
           child: Column(
       mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-
+          children: [
           const SizedBox(
             height: 10,
           ),
