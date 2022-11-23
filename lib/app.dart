@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:odtwarzacz/screens/player.dart';
+import 'package:odtwarzacz/screens/playlist_show.dart';
 import 'package:odtwarzacz/widgets/miniplayer.dart';
 import 'package:odtwarzacz/widgets/track.dart';
 
 import 'screens/directories.dart';
 import 'screens/home.dart';
 import 'screens/playlists.dart';
+
+enum Screen {
+  Home,
+  Playlists,
+  PlaylistsShow,
+  Directories
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -48,6 +56,7 @@ class Main extends StatefulWidget {
 
 class MainState extends State<Main> {
   int _index = 0;
+  Screen _screen = Screen.Home;
   PlayerArguments? _args;
 
   void onTrackClick(BuildContext context, TrackData data) {
@@ -60,17 +69,43 @@ class MainState extends State<Main> {
     });
   }
 
+  void onAlbumClick(BuildContext context, String albumName) {
+    setState(() {
+      _screen = Screen.PlaylistsShow;
+      _index = 1;
+    });
+  }
+
   Widget _body() {
-    switch (_index) {
-      case 0:
-        return Home(onTrackClick: onTrackClick);
-      case 1:
+    switch (_screen) {
+      case Screen.Home:
+        return Home(onTrackClick: onTrackClick, onAlbumClick: onAlbumClick);
+      case Screen.Playlists:
         return const Playlists();
-      case 2:
+      case Screen.PlaylistsShow:
+        return PlaylistShow(onTrackClick: onTrackClick);
+      case Screen.Directories:
         return const Directories();
       default:
         throw UnimplementedError();
     }
+  }
+
+  void _changeScreen(int index) {
+    setState(() {
+      _index = index;
+      switch (_index) {
+        case 0:
+          _screen = Screen.Home;
+          break;
+        case 1:
+          _screen = Screen.Playlists;
+          break;
+        case 2:
+          _screen = Screen.Directories;
+          break;
+      }
+    });
   }
 
   BottomSheet? _buildBottomSheet() {
@@ -99,7 +134,7 @@ class MainState extends State<Main> {
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: _index,
           onTap: (index) {
-            setState(() => _index = index);
+            setState(() => _changeScreen(index));
           },
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
