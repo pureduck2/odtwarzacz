@@ -1,311 +1,133 @@
 import 'package:flutter/material.dart';
-
+import 'package:odtwarzacz/widgets/track.dart';
+import 'package:odtwarzacz/widgets/widetrack.dart';
 
 class PlaylistShow extends StatelessWidget {
   const PlaylistShow({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        home: Scaffold(
-            backgroundColor: Colors.white12,
-            appBar: AppBar(
-                elevation: 0,
-                backgroundColor: Colors.transparent,
-                leading: IconButton(
-                  icon: const Icon(Icons.arrow_back, size: 25,),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                ),
-                actions: [
-                  IconButton(
-                      icon: const Icon(Icons.add, size: 25,),
-                      onPressed: () {
-                        Navigator.pushNamed(context,'PlaylistCreate');
-                      }
-                  ),],
+    return SingleChildScrollView(
+        child: Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        const SizedBox(
+          height: 10,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Container(
+              decoration: const BoxDecoration(
+                color: Colors.teal,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.white,
+                    blurRadius: 7, // Shadow position
+                  ),
+                ],
               ),
-            body: Padding(padding: const EdgeInsets.all(2),
-                child: SingleChildScrollView(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        const SizedBox(height: 10,),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Container(
-                              decoration: const BoxDecoration(
-                                color: Colors.teal,
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.white,
-                                    blurRadius: 7, // Shadow position
-                                  ),
-                                ],
-                              ),
-                              child: Image.asset('assets/Cover-13v4-small.jpg',
-                                height: 200,
-                                width: 200,
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: 10),
-
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: const [
-                            Text('NAZWA PLAYLISTY',style: TextStyle(fontSize: 25,color: Colors.white,fontWeight: FontWeight.w900),)
-                          ],
-                        ),
-                        const SizedBox(height: 20),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            IconButton(
-                                icon: const Icon(Icons.compare_arrows_rounded, size: 45,color: Colors.white,),
-                                onPressed: () {}
-                            ),
-                            const SizedBox(width: 10,),
-                            IconButton(
-                                icon: const Icon(Icons.play_circle, size: 55,color: Colors.green,),
-                                onPressed: () {}
-                            ),
-                            const SizedBox(width: 30,),
-                          ],
-                        ),
-                        const SizedBox(height: 30),
-
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            IconButton(
-                              splashRadius: 45,
-                              icon: Image.asset('assets/Cover-13v4-small.jpg'),
-                              iconSize: 55,
-                              onPressed: () {
-                                Navigator.pushNamed(context,'Home');
-                              },
-                            ),
-
-
-                            SizedBox(
-                              width: 220,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: const [
-                                  Text('makapaka',style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w500,),
-                                  ),
-                                  Text('gienek',style: TextStyle(fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),
-                                  ),
-                                ],
-                              ),
-
-                            ),
-                            const Opacity(opacity: 0.8),
-                            IconButton(
-                                icon: const Icon(Icons.more_vert_rounded, size: 25,color: Colors.white,),
-                                onPressed: () {}
-                            )
-                          ],
-                        ),
-                        const SizedBox(height: 10),
-
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            IconButton(
-                              splashRadius: 45,
-                              icon: Image.asset('assets/Cover-13v4-small.jpg'),
-                              iconSize: 55,
-                              onPressed: () {
-                                Navigator.pushNamed(context,'Home');
-                              },
-                            ),
-
-
-                            SizedBox(
-                              width: 220,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: const [
-                                  Text('makapaka',style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w500,),
-                                  ),
-                                  Text('makapaka',style: TextStyle(fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),
-                                  ),
-                                ],
-                              ),
-
-                            ),
-
-                            
-                            const Opacity(opacity: 0.8),
-                            IconButton(
-                                icon: const Icon(Icons.more_vert_rounded, size: 25,color: Colors.white,),
-                                onPressed: () {}
-                            )
-                          ],
-                        ),
-                        const SizedBox(height: 10),
-
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            IconButton(
-                              splashRadius: 45,
-                              icon: Image.asset('assets/Cover-13v4-small.jpg'),
-                              iconSize: 55,
-                              onPressed: () {
-                                Navigator.pushNamed(context,'Home');
-                              },
-                            ),
-
-
-                            SizedBox(
-                              width: 220,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: const [
-                                  Text('makapaka',style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w500,),
-                                  ),
-                                  Text('makapaka',style: TextStyle(fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),
-                                  ),
-                                ],
-                              ),
-
-                            ),
-
-                            const Opacity(opacity: 0.8),
-                            IconButton(
-                                icon: const Icon(Icons.more_vert_rounded, size: 25,color: Colors.white,),
-                                onPressed: () {}
-                            )
-                          ],
-                        ),
-                        const SizedBox(height: 10),
-
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            IconButton(
-                              splashRadius: 45,
-                              icon: Image.asset('assets/Cover-13v4-small.jpg'),
-                              iconSize: 55,
-                              onPressed: () {
-                                Navigator.pushNamed(context,'Home');
-                              },
-                            ),
-
-
-                            SizedBox(
-                              width: 220,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: const [
-                                  Text('makapaka',style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w500,),
-                                  ),
-                                  Text('makapaka',style: TextStyle(fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),
-                                  ),
-                                ],
-                              ),
-
-                            ),
-
-                            const Opacity(opacity: 0.8),
-                            IconButton(
-                                icon: const Icon(Icons.more_vert_rounded, size: 25,color: Colors.white,),
-                                onPressed: () {}
-                            )
-                          ],
-                        ),
-                        const SizedBox(height: 10),
-
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            IconButton(
-                              splashRadius: 45,
-                              icon: Image.asset('assets/Cover-13v4-small.jpg'),
-                              iconSize: 55,
-                              onPressed: () {
-                                Navigator.pushNamed(context,'Home');
-                              },
-                            ),
-
-                            SizedBox(
-                              width: 220,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: const [
-                                  Text('makapaka',style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w500,),
-                                  ),
-                                  Text('makapaka',style: TextStyle(fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),
-                                  ),
-                                ],
-                              ),
-
-                            ),
-
-                            const Opacity(opacity: 0.8),
-                            IconButton(
-                                icon: const Icon(Icons.more_vert_rounded, size: 25,color: Colors.white,),
-                                onPressed: () {}
-                            )
-                          ],
-                        ),
-                        const SizedBox(height: 20),
-
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            IconButton(
-                              splashRadius: 95,
-                              icon: Container(
-                                  decoration: const BoxDecoration(
-                                    color: Colors.teal,
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.white,
-                                        blurRadius: 4, // Shadow position
-                                      ),
-                                    ],
-                                  ),
-                                  child: Image.asset('assets/Cover-13v4-small.jpg')
-                              ),
-                              iconSize: 150,
-                              onPressed: () {
-                                Navigator.pushNamed(context,'PlaylistShow');
-                              },
-                            ),
-                            IconButton(
-                              splashRadius: 95,
-                              icon: Container(
-                                  decoration: const BoxDecoration(
-                                    color: Colors.teal,
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.white,
-                                        blurRadius: 4, // Shadow position
-                                      ),
-                                    ],
-                                  ),
-                                  child: Image.asset('assets/Cover-13v4-small.jpg')
-                              ),
-                              iconSize: 150,
-                              onPressed: () {
-                                Navigator.pushNamed(context,'PlaylistShow');
-                              },
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: 30),
-                      ],
-                    )
-                )
+              child: Image.asset(
+                'assets/Cover-13v4-small.jpg',
+                height: 200,
+                width: 200,
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 10),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: const [
+            Text(
+              'NAZWA PLAYLISTY',
+              style: TextStyle(
+                  fontSize: 25,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w900),
             )
-        )
-    );
+          ],
+        ),
+        const SizedBox(height: 20),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            IconButton(
+                icon: const Icon(
+                  Icons.compare_arrows_rounded,
+                  size: 45,
+                  color: Colors.white,
+                ),
+                onPressed: () {}),
+            const SizedBox(
+              width: 10,
+            ),
+            IconButton(
+                icon: const Icon(
+                  Icons.play_circle,
+                  size: 55,
+                  color: Colors.green,
+                ),
+                onPressed: () {}),
+            const SizedBox(
+              width: 30,
+            ),
+          ],
+        ),
+        const SizedBox(height: 30),
+        const WideTrack(data: TrackData(name: 'makapaka', author: 'makapaka')),
+        const SizedBox(height: 10),
+        const WideTrack(data: TrackData(name: 'makapaka', author: 'makapaka')),
+        const SizedBox(height: 10),
+        const WideTrack(data: TrackData(name: 'makapaka', author: 'makapaka')),
+        const SizedBox(height: 10),
+        const WideTrack(data: TrackData(name: 'makapaka', author: 'makapaka')),
+        const SizedBox(height: 10),
+        const WideTrack(data: TrackData(name: 'makapaka', author: 'makapaka')),
+        const SizedBox(height: 20),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            IconButton(
+              splashRadius: 95,
+              icon: Container(
+                  decoration: const BoxDecoration(
+                    color: Colors.teal,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.white,
+                        blurRadius: 4, // Shadow position
+                      ),
+                    ],
+                  ),
+                  child: Image.asset('assets/Cover-13v4-small.jpg')),
+              iconSize: 150,
+              onPressed: () {
+                Navigator.pushNamed(context, 'PlaylistShow');
+              },
+            ),
+            IconButton(
+              splashRadius: 95,
+              icon: Container(
+                  decoration: const BoxDecoration(
+                    color: Colors.teal,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.white,
+                        blurRadius: 4, // Shadow position
+                      ),
+                    ],
+                  ),
+                  child: Image.asset('assets/Cover-13v4-small.jpg')),
+              iconSize: 150,
+              onPressed: () {
+                Navigator.pushNamed(context, 'PlaylistShow');
+              },
+            ),
+          ],
+        ),
+        const SizedBox(height: 30),
+      ],
+    ));
   }
 }
