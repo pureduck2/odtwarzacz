@@ -60,7 +60,10 @@ class MiniPlayerState extends State<MiniPlayer> {
             children: [
               Row(
                 children: [
-                  const Cover(),
+                  const Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Cover(constraints: BoxConstraints(maxWidth: 48, maxHeight: 48)),
+                  ),
                   const SizedBox(width: padding),
                   Expanded(
                     child: Column(
