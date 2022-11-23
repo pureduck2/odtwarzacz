@@ -23,7 +23,7 @@ class _PlaylistCreateState extends State<PlaylistCreate> {
                 'Tworzenie playlisty',
               ),
               leading: IconButton(
-                icon: const Icon(Icons.arrow_back, size: 35,),
+                icon: const Icon(Icons.arrow_back, size: 25,),
                 onPressed: () {},
               ),
             ), body: Padding(
