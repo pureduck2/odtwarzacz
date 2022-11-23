@@ -10,7 +10,7 @@ class Cover extends StatelessWidget {
           const BoxConstraints(maxWidth: 64.0, maxHeight: 64.0)});
 
   final Color color;
-  final BoxConstraints constraints;
+  final BoxConstraints? constraints;
 
   @override
   Widget build(BuildContext context) {

@@ -7,7 +7,9 @@ import 'package:odtwarzacz/widgets/track.dart';
 import '../widgets/centeredtext.dart';
 
 class Home extends StatelessWidget {
-  const Home({super.key});
+  const Home({super.key, this.onTrackClick});
+
+  final void Function(BuildContext context, TrackData data)? onTrackClick;
 
   @override
   Widget build(BuildContext context) {
@@ -21,32 +23,33 @@ class Home extends StatelessWidget {
         SizedBox(height: padding),
         CenteredText(
           'Szybki wybór',
-          style: textTheme.headline1,
+          style: textTheme.headline2,
         ),
         SizedBox(height: padding),
-        CenteredText('Ostatnio odtwarzane', style: textTheme.headline2),
+        CenteredText('Ostatnio odtwarzane', style: textTheme.headline3),
         SizedBox(height: padding),
         SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: ColumnList(
-            columnCount: 2,
-            children: List.generate(43, (index) {
-              return Track(name: '$index', author: '$index',);
-            }),
-          )
-        ),
+            scrollDirection: Axis.horizontal,
+            child: ColumnList(
+              columnCount: 2,
+              children: List.generate(43, (index) {
+                return Track(
+                  data: TrackData(name: '$index', author: '$index'),
+                  onTap: onTrackClick,
+                );
+              }),
+            )),
         SizedBox(height: padding),
-        CenteredText('Playlisty', style: textTheme.headline2),
+        CenteredText('Playlisty', style: textTheme.headline3),
         SizedBox(height: padding),
         SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: ColumnList(
-            columnCount: 1,
-            children: List.generate(43, (index) {
-              return Album(name: '$index');
-            }),
-          )
-        ),
+            scrollDirection: Axis.horizontal,
+            child: ColumnList(
+              columnCount: 1,
+              children: List.generate(43, (index) {
+                return Album(name: '$index');
+              }),
+            )),
         SizedBox(height: padding)
       ],
     ));

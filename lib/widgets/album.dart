@@ -19,7 +19,7 @@ class Album extends StatelessWidget {
         children: [
           const Cover(constraints: BoxConstraints(maxWidth: 128.0, maxHeight: 128.0)),
           const SizedBox(height: padding),
-          Text(name, style: textTheme.headline3),
+          Text(name, style: textTheme.headline4),
         ],
       ),
     );
