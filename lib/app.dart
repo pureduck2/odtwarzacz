@@ -56,6 +56,7 @@ class Main extends StatefulWidget {
 
 class MainState extends State<Main> {
   int _index = 0;
+  int? _lastIndex;
   Screen _screen = Screen.Home;
   Screen? _lastScreen;
   PlayerArguments? _args;
@@ -63,6 +64,7 @@ class MainState extends State<Main> {
   void goBack() {
     setState(() {
       _screen = _lastScreen ?? Screen.Home;
+      _index = _lastIndex ?? 0;
     });
   }
 
@@ -78,6 +80,7 @@ class MainState extends State<Main> {
 
   void onAlbumClick(BuildContext context, String albumName) {
     setState(() {
+      _lastIndex = _index;
       _lastScreen = _screen;
       _screen = Screen.PlaylistsShow;
       _index = 1;
