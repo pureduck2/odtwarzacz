@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:odtwarzacz/controllers/albums.dart';
+import 'package:odtwarzacz/controllers/tracks.dart';
 import 'package:odtwarzacz/screens/player.dart';
 import 'package:odtwarzacz/screens/playlist_show.dart';
 import 'package:odtwarzacz/widgets/album.dart';
@@ -62,6 +65,16 @@ class MainState extends State<Main> {
   Screen? _lastScreen;
   PlayerArguments? _args;
   late AlbumData albumData;
+
+  late AlbumsController _albumsController;
+  late TracksController _tracksController;
+
+  @override
+  void initState() {
+    _albumsController = Get.put(AlbumsController());
+    _tracksController = Get.put(TracksController());
+    super.initState();
+  }
 
   void goBack() {
     setState(() {
