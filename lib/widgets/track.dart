@@ -6,8 +6,10 @@ class TrackData {
   final String name;
   final String author;
   final String? albumName;
+  final bool favorite;
+  final DateTime? lastPlayed;
 
-  const TrackData({required this.name, required this.author, this.albumName});
+  const TrackData({required this.name, required this.author, this.albumName, this.favorite = false, this.lastPlayed});
 }
 
 class Track extends StatelessWidget {
