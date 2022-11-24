@@ -10,7 +10,7 @@ class TracksController extends GetxController {
     tracks = List.generate(
         43,
         (index) => TrackData(
-            name: '$index', author: '$index', lastPlayed: DateTime.now()));
+            id: index, name: '$index', author: '$index', lastPlayed: DateTime.now()));
     super.onInit();
   }
 
@@ -18,6 +18,10 @@ class TracksController extends GetxController {
     var index = tracks.indexWhere((data) => data.name == name);
     var track = tracks[index];
     tracks[index] = track.copyWith(favorite: favorite);
+  }
+
+  TrackData getById(int id) {
+    return tracks.firstWhere((data) => data.id == id);
   }
 
   TrackData getByName(String name) {

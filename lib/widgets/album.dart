@@ -7,8 +7,9 @@ class AlbumData {
   final Image? image;
   final bool? favorite;
   final DateTime? lastPlayed;
+  final List<int> trackIds;
 
-  const AlbumData({required this.name, this.image, this.favorite, this.lastPlayed});
+  const AlbumData({required this.name, this.image, this.favorite, this.lastPlayed, this.trackIds = const []});
 }
 
 class Album extends StatelessWidget {

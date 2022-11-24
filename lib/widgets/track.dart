@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'cover.dart';
 
 class TrackData {
+  final int? id;
   final String name;
   final String author;
   final String? albumName;
@@ -10,19 +11,22 @@ class TrackData {
   final DateTime? lastPlayed;
 
   const TrackData(
-      {required this.name,
+      {this.id,
+      required this.name,
       required this.author,
       this.albumName,
       this.favorite = false,
       this.lastPlayed});
 
   TrackData copyWith(
-      {String? name,
+      {int? id,
+      String? name,
       String? author,
       String? albumName,
       bool? favorite,
       DateTime? lastPlayed}) {
     return TrackData(
+        id: id ?? this.id,
         name: name ?? this.name,
         author: author ?? this.author,
         albumName: albumName ?? this.albumName,
@@ -52,7 +56,7 @@ class Track extends StatelessWidget {
 
     return InkWell(
       onTap: () {
-        onTap?.call(context, TrackData(name: name, author: author));
+        onTap?.call(context, TrackData(id: data.id, name: name, author: author));
       },
       child: Row(
         children: [
