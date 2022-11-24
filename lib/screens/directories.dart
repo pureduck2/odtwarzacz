@@ -13,13 +13,43 @@ class _DirectoriesState extends State<Directories> {
     style: TextStyle(
         fontSize: 20,
         fontWeight: FontWeight.bold),);
+
+  final duplicateItems = List<String>.generate(69, (i) => "Item $i");
+  var items = <String>[];
+
+  @override
+  void initState() {
+    items.addAll(duplicateItems);
+    super.initState();
+  }
+
+  void filterSearchResults(String query) {
+    List<String> dummySearchList = <String>[];
+    dummySearchList.addAll(duplicateItems);
+    if(query.isNotEmpty) {
+      List<String> dummyListData = <String>[];
+      for (var item in dummySearchList) {
+        if(item.contains(query)) {
+          dummyListData.add(item);
+        }
+      }
+      setState(() {
+        items.clear();
+        items.addAll(dummyListData);
+      });
+      return;
+    } else {
+      setState(() {
+        items.clear();
+        items.addAll(duplicateItems);
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    //return const Center(child: Text('Katalogi'));
 
-    return MaterialApp(
-    title: 'Directories',
-    home: Scaffold(
+    return Scaffold(
       resizeToAvoidBottomInset: false,
     backgroundColor: Colors.black,
     appBar: PreferredSize(preferredSize: const Size.fromHeight(60),
@@ -33,14 +63,17 @@ class _DirectoriesState extends State<Directories> {
             setState(() {
               if (customIcon.icon == Icons.search) {
                 customIcon = const Icon(Icons.cancel);
-                customSearchBar = const ListTile(
-                  leading: Icon(
+                customSearchBar =  ListTile(
+                  leading: const Icon(
                     Icons.search,
                     color: Colors.white,
                     size: 28,
                   ),
                   title: TextField(
-                    decoration: InputDecoration(
+                    onChanged: (value){
+                      filterSearchResults(value);
+                    },
+                    decoration: const InputDecoration(
                       hintText: 'Szukaj...',
                       hintStyle: TextStyle(
                         color: Colors.white,
@@ -49,7 +82,7 @@ class _DirectoriesState extends State<Directories> {
                       ),
                       border: InputBorder.none,
                     ),
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.white,
                     ),
                   ),
@@ -72,7 +105,13 @@ class _DirectoriesState extends State<Directories> {
       children: [
         const SizedBox(height: 30),
 
-        Row(
+   ListView.builder(
+    padding: const EdgeInsets.all(8),
+    itemCount: items.length,
+     shrinkWrap: true,
+     physics: const NeverScrollableScrollPhysics(),
+     itemBuilder: (BuildContext context, int index){
+       return Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             IconButton(
@@ -80,206 +119,47 @@ class _DirectoriesState extends State<Directories> {
               iconSize: 50,
               onPressed: () {},
             ),
-
             SizedBox(
               width: 275,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Text('jeden',style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w500),
-                  ),
-                ],
+              child: Text(items[index],style: const TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w500),
               ),
-
             ),
           ],
-        ),
+        );
+     },
 
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            IconButton(
-              icon: const Icon(Icons.folder_outlined, color: Colors.white),
-              iconSize: 50,
-              onPressed: () {},
-            ),
+   )
 
-            SizedBox(
-              width: 275,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Text('dwa',style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w500),
-                  ),
-                ],
-              ),
 
-            ),
-          ],
-        ),
 
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            IconButton(
-              icon: const Icon(Icons.folder_outlined, color: Colors.white),
-              iconSize: 50,
-              onPressed: () {},
-            ),
 
-            SizedBox(
-              width: 275,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Text('trzy',style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w500,),
-                  ),
-                ],
-              ),
+   // ...List<Widget>.generate(100, (i) => Text("chuj $i")),
 
-            ),
-          ],
-        ),
 
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            IconButton(
-              icon: const Icon(Icons.folder_outlined, color: Colors.white),
-              iconSize: 50,
-              onPressed: () {},
-            ),
-
-            SizedBox(
-              width: 275,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Text('cztery',style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w500,),
-                  ),
-                ],
-              ),
-
-            ),
-          ],
-        ),
-
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            IconButton(
-              icon: const Icon(Icons.folder_outlined, color: Colors.white),
-              iconSize: 50,
-              onPressed: () {},
-            ),
-
-            SizedBox(
-              width: 275,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Text('pięć',style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w500,),
-                  ),
-                ],
-              ),
-
-            ),
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            IconButton(
-              icon: const Icon(Icons.folder_outlined, color: Colors.white),
-              iconSize: 50,
-              onPressed: () {},
-            ),
-
-            SizedBox(
-              width: 275,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Text('sześć',style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w500,),
-                  ),
-                ],
-              ),
-
-            ),
-          ],
-        ),
-
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            IconButton(
-              icon: const Icon(Icons.folder_outlined, color: Colors.white),
-              iconSize: 50,
-              onPressed: () {},
-            ),
-
-            SizedBox(
-              width: 275,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Text('siedem',style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w500,),
-                  ),
-                ],
-              ),
-
-            ),
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            IconButton(
-              icon: const Icon(Icons.folder_outlined, color: Colors.white),
-              iconSize: 50,
-              onPressed: () {},
-            ),
-
-            SizedBox(
-              width: 275,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Text('osiem',style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w500,),
-                  ),
-                ],
-              ),
-
-            ),
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            IconButton(
-              icon: const Icon(Icons.folder_outlined, color: Colors.white),
-              iconSize: 50,
-              onPressed: () {},
-            ),
-
-            SizedBox(
-              width: 275,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Text('dziewięć',style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w500,),
-                  ),
-                ],
-              ),
-
-            ),
-          ],
-        ),
+//        Row(
+//          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//          children: [
+//            IconButton(
+//              icon: const Icon(Icons.folder_outlined, color: Colors.white),
+//              iconSize: 50,
+//              onPressed: () {},
+//            ),
+//            SizedBox(
+//              width: 275,
+//              child: Column(
+//                crossAxisAlignment: CrossAxisAlignment.start,
+//                children: const [
+//                  Text('jeden',style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w500),
+//                  ),
+//                ],
+//              ),
+//            ),
+//          ],
+//        ),
       ],
     )
     )
     ),
-    )
     );
     }
 }
