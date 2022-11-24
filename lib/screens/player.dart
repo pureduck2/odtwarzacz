@@ -1,7 +1,9 @@
 import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:odtwarzacz/widgets/progressbarwrapper.dart';
 
+import '../controllers/tracks.dart';
 import '../widgets/cover.dart';
 
 enum RepeatType {
@@ -92,8 +94,14 @@ class PlayerState extends State<Player> {
   bool _play = false;
   bool _shuffle = false;
   RepeatType _repeatType = RepeatType.none;
-  bool _favorite = false;
   Duration _progress = Duration.zero;
+  late TracksController _tracksController;
+
+  void _toggleFavorite() {
+    var name = widget.args.trackName;
+    bool favorite = _tracksController.getByName(name).favorite;
+    _tracksController.setFavoriteByName(name, !favorite);
+  }
 
   @override
   void initState() {
@@ -102,6 +110,7 @@ class PlayerState extends State<Player> {
     _shuffle = args.shuffle ?? _shuffle;
     _repeatType = args.repeatType ?? _repeatType;
     _progress = args.progress ?? _progress;
+    _tracksController = Get.find();
 
     super.initState();
   }
@@ -115,6 +124,8 @@ class PlayerState extends State<Player> {
     var trackName = args.trackName;
     var trackAuthor = args.trackAuthor;
     var albumName = args.albumName ?? trackName;
+
+    bool favorite = _tracksController.getByName(trackName).favorite;
 
     return Scaffold(
       appBar: AppBar(
@@ -188,12 +199,12 @@ class PlayerState extends State<Player> {
                 color: _shuffle ? Colors.white : Colors.grey,
               ),
               IconButton(
-                onPressed: () => setState(() => _favorite = !_favorite),
-                icon: _favorite
+                onPressed: () => setState(() => _toggleFavorite()),
+                icon: favorite
                     ? const Icon(Icons.favorite)
                     : const Icon(Icons.favorite_border),
                 iconSize: 40,
-                color: _favorite ? Colors.white : Colors.grey,
+                color: favorite ? Colors.white : Colors.grey,
               ),
               IconButton(
                 onPressed: () =>

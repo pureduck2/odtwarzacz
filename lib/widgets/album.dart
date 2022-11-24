@@ -2,6 +2,16 @@ import 'package:flutter/material.dart';
 
 import 'cover.dart';
 
+class AlbumData {
+  final String name;
+  final Image? image;
+  final bool? favorite;
+  final DateTime? lastPlayed;
+  final List<int> trackIds;
+
+  const AlbumData({required this.name, this.image, this.favorite, this.lastPlayed, this.trackIds = const []});
+}
+
 class Album extends StatelessWidget {
   const Album(
       {super.key,
@@ -12,7 +22,7 @@ class Album extends StatelessWidget {
       this.image});
 
   final String name;
-  final void Function(BuildContext context, String albumName)? onTap;
+  final void Function(BuildContext context, AlbumData data)? onTap;
   final BoxConstraints constraints;
   final Image? image;
 
@@ -26,7 +36,7 @@ class Album extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
       child: InkWell(
         onTap: () {
-          onTap?.call(context, name);
+          onTap?.call(context, AlbumData(name: name, image: image));
         },
         child: Column(
           children: [

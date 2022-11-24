@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:odtwarzacz/controllers/albums.dart';
+import 'package:odtwarzacz/controllers/tracks.dart';
 import 'package:odtwarzacz/screens/player.dart';
 import 'package:odtwarzacz/screens/playlist_show.dart';
+import 'package:odtwarzacz/widgets/album.dart';
 import 'package:odtwarzacz/widgets/miniplayer.dart';
 import 'package:odtwarzacz/widgets/track.dart';
 
@@ -60,6 +64,17 @@ class MainState extends State<Main> {
   Screen _screen = Screen.home;
   Screen? _lastScreen;
   PlayerArguments? _args;
+  late AlbumData albumData;
+
+  late AlbumsController _albumsController;
+  late TracksController _tracksController;
+
+  @override
+  void initState() {
+    _albumsController = Get.put(AlbumsController());
+    _tracksController = Get.put(TracksController());
+    super.initState();
+  }
 
   void goBack() {
     setState(() {
@@ -71,15 +86,16 @@ class MainState extends State<Main> {
   void onTrackClick(BuildContext context, TrackData data) {
     setState(() {
       if (_args == null) {
-        _args = PlayerArguments(trackName: data.name, trackAuthor: data.author);
+        _args = PlayerArguments(trackName: data.name, trackAuthor: data.author, albumName: data.albumName);
       } else {
-        _args!.updateWith(PlayerArguments(trackName: data.name, trackAuthor: data.author));
+        _args!.updateWith(PlayerArguments(trackName: data.name, trackAuthor: data.author, albumName: data.albumName));
       }
     });
   }
 
-  void onAlbumClick(BuildContext context, String albumName) {
+  void onAlbumClick(BuildContext context, AlbumData data) {
     setState(() {
+      albumData = data;
       _lastIndex = _index;
       _lastScreen = _screen;
       _screen = Screen.playlistsShow;
@@ -94,7 +110,7 @@ class MainState extends State<Main> {
       case Screen.playlists:
         return Playlists(onAlbumClick: onAlbumClick);
       case Screen.playlistsShow:
-        return PlaylistShow(onTrackClick: onTrackClick, onExit: goBack);
+        return PlaylistShow(albumData: albumData, onTrackClick: onTrackClick, onExit: goBack);
       case Screen.directories:
         return const Directories();
       default:
