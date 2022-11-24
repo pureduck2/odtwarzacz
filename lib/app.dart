@@ -70,10 +70,11 @@ class MainState extends State<Main> {
 
   void onTrackClick(BuildContext context, TrackData data) {
     setState(() {
+      debugPrint(data.albumName);
       if (_args == null) {
-        _args = PlayerArguments(trackName: data.name, trackAuthor: data.author);
+        _args = PlayerArguments(trackName: data.name, trackAuthor: data.author, albumName: data.albumName);
       } else {
-        _args!.updateWith(PlayerArguments(trackName: data.name, trackAuthor: data.author));
+        _args!.updateWith(PlayerArguments(trackName: data.name, trackAuthor: data.author, albumName: data.albumName));
       }
     });
   }

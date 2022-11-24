@@ -39,6 +39,7 @@ class MiniPlayerState extends State<MiniPlayer> {
 
     var name = widget.args.trackName;
     var author = widget.args.trackAuthor;
+    var albumName = widget.args.albumName;
     var columnChildren = [
       Text(name,
           style: textTheme.headline4,
@@ -108,6 +109,7 @@ class MiniPlayerState extends State<MiniPlayer> {
             args: PlayerArguments(
                 trackName: name,
                 trackAuthor: author,
+                albumName: albumName,
                 shuffle: _shuffle,
                 repeatType: _repeatType,
                 play: _play,

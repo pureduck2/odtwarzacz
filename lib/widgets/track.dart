@@ -5,8 +5,9 @@ import 'cover.dart';
 class TrackData {
   final String name;
   final String author;
+  final String? albumName;
 
-  const TrackData({required this.name, required this.author});
+  const TrackData({required this.name, required this.author, this.albumName});
 }
 
 class Track extends StatelessWidget {
