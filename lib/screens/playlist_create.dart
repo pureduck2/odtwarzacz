@@ -27,9 +27,9 @@ class _PlaylistCreateState extends State<PlaylistCreate> {
                 onPressed: () {},
               ),
             ), body: Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(100.0),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children:  [
               TextField(
                 controller: _textController,
