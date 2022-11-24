@@ -14,6 +14,16 @@ class TracksController extends GetxController {
     super.onInit();
   }
 
+  void setFavoriteByName(String name, bool favorite) {
+    var index = tracks.indexWhere((data) => data.name == name);
+    var track = tracks[index];
+    tracks[index] = track.copyWith(favorite: favorite);
+  }
+
+  TrackData getByName(String name) {
+    return tracks.firstWhere((data) => data.name == name);
+  }
+
   List<TrackData> getAll() {
     return tracks;
   }

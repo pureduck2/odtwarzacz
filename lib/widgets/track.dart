@@ -9,7 +9,26 @@ class TrackData {
   final bool favorite;
   final DateTime? lastPlayed;
 
-  const TrackData({required this.name, required this.author, this.albumName, this.favorite = false, this.lastPlayed});
+  const TrackData(
+      {required this.name,
+      required this.author,
+      this.albumName,
+      this.favorite = false,
+      this.lastPlayed});
+
+  TrackData copyWith(
+      {String? name,
+      String? author,
+      String? albumName,
+      bool? favorite,
+      DateTime? lastPlayed}) {
+    return TrackData(
+        name: name ?? this.name,
+        author: author ?? this.author,
+        albumName: albumName ?? this.albumName,
+        favorite: favorite ?? this.favorite,
+        lastPlayed: lastPlayed ?? this.lastPlayed);
+  }
 }
 
 class Track extends StatelessWidget {
@@ -26,7 +45,10 @@ class Track extends StatelessWidget {
     var author = data.author;
 
     var textTheme = Theme.of(context).textTheme;
-    var columnChildren = [Text(name, style: textTheme.headline4), Text(author, style: textTheme.subtitle2)];
+    var columnChildren = [
+      Text(name, style: textTheme.headline4),
+      Text(author, style: textTheme.subtitle2)
+    ];
 
     return InkWell(
       onTap: () {
