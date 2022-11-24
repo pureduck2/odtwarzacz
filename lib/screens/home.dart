@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:odtwarzacz/controllers/albums.dart';
 import 'package:odtwarzacz/widgets/album.dart';
 import 'package:odtwarzacz/widgets/column_list.dart';
 import 'package:odtwarzacz/widgets/track.dart';
@@ -16,6 +18,8 @@ class Home extends StatelessWidget {
     var textTheme = Theme.of(context).textTheme;
     var padding = 30.0;
 
+    AlbumsController c = Get.find();
+
     return SingleChildScrollView(
         child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -32,9 +36,7 @@ class Home extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             child: ColumnList(
               columnCount: 1,
-              children: List.generate(43, (index) {
-                return Album(name: '$index', onTap: onAlbumClick);
-              }),
+              children: c.getAll().map((data) => Album(name: data.name, image: data.image, onTap: onAlbumClick)).toList(),
             )),
         SizedBox(height: padding),
         CenteredText('Ostatnio odtwarzane', style: textTheme.headline3),

@@ -5,8 +5,10 @@ import 'cover.dart';
 class AlbumData {
   final String name;
   final Image? image;
+  final bool? favorite;
+  final DateTime? lastPlayed;
 
-  const AlbumData({required this.name, this.image});
+  const AlbumData({required this.name, this.image, this.favorite, this.lastPlayed});
 }
 
 class Album extends StatelessWidget {
