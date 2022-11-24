@@ -9,7 +9,7 @@ class Home extends StatelessWidget {
   const Home({super.key, this.onTrackClick, this.onAlbumClick});
 
   final void Function(BuildContext context, TrackData data)? onTrackClick;
-  final void Function(BuildContext context, String albumName)? onAlbumClick;
+  final void Function(BuildContext context, AlbumData data)? onAlbumClick;
 
   @override
   Widget build(BuildContext context) {

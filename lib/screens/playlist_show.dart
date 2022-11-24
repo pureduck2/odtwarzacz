@@ -2,14 +2,29 @@ import 'package:flutter/material.dart';
 import 'package:odtwarzacz/widgets/track.dart';
 import 'package:odtwarzacz/widgets/widetrack.dart';
 
+import '../widgets/album.dart';
+
 class PlaylistShow extends StatelessWidget {
-  const PlaylistShow({super.key, this.onTrackClick, this.onExit,this.playlistName='byleco'});
+  const PlaylistShow({super.key, this.onTrackClick, this.onExit, this.albumData = const AlbumData(name: 'byleco')});
 
   final void Function(BuildContext context, TrackData data)? onTrackClick;
   final void Function()? onExit;
-  final String playlistName;
+  final AlbumData albumData;
+
   void _onTrackClick(BuildContext context, TrackData data) {
-    onTrackClick?.call(context,TrackData(name: data.name, author: data.author,albumName: playlistName));
+    onTrackClick?.call(context,TrackData(name: data.name, author: data.author, albumName: albumData.name));
+  }
+
+  Image _getAlbumImage() {
+    if (albumData.image != null) {
+      return Image(image: albumData.image!.image, height: 200, width: 200);
+    } else {
+      return Image.asset(
+        'assets/test.png',
+        height: 200,
+        width: 200,
+      );
+    }
   }
 
   @override
@@ -71,11 +86,7 @@ class PlaylistShow extends StatelessWidget {
                       ),
                     ],
                   ),
-                  child: Image.asset(
-                    'assets/Cover-13v4-small.jpg',
-                    height: 200,
-                    width: 200,
-                  ),
+                  child: _getAlbumImage(),
                 ),
               ],
             ),
@@ -84,7 +95,7 @@ class PlaylistShow extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Text(
-                  playlistName,
+                  albumData.name,
                   style: const TextStyle(
                       fontSize: 25,
                       color: Colors.white,

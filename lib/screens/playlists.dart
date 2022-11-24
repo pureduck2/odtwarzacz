@@ -4,7 +4,7 @@ import '../widgets/album.dart';
 class Playlists extends StatelessWidget {
   const Playlists({super.key, this.onAlbumClick});
 
-  final void Function(BuildContext context, String albumName)? onAlbumClick;
+  final void Function(BuildContext context, AlbumData data)? onAlbumClick;
 
   @override
   Widget build(BuildContext context) {

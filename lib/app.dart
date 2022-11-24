@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:odtwarzacz/screens/player.dart';
 import 'package:odtwarzacz/screens/playlist_show.dart';
+import 'package:odtwarzacz/widgets/album.dart';
 import 'package:odtwarzacz/widgets/miniplayer.dart';
 import 'package:odtwarzacz/widgets/track.dart';
 
@@ -60,6 +61,7 @@ class MainState extends State<Main> {
   Screen _screen = Screen.home;
   Screen? _lastScreen;
   PlayerArguments? _args;
+  late AlbumData albumData;
 
   void goBack() {
     setState(() {
@@ -70,7 +72,6 @@ class MainState extends State<Main> {
 
   void onTrackClick(BuildContext context, TrackData data) {
     setState(() {
-      debugPrint(data.albumName);
       if (_args == null) {
         _args = PlayerArguments(trackName: data.name, trackAuthor: data.author, albumName: data.albumName);
       } else {
@@ -79,8 +80,9 @@ class MainState extends State<Main> {
     });
   }
 
-  void onAlbumClick(BuildContext context, String albumName) {
+  void onAlbumClick(BuildContext context, AlbumData data) {
     setState(() {
+      albumData = data;
       _lastIndex = _index;
       _lastScreen = _screen;
       _screen = Screen.playlistsShow;
@@ -95,7 +97,7 @@ class MainState extends State<Main> {
       case Screen.playlists:
         return Playlists(onAlbumClick: onAlbumClick);
       case Screen.playlistsShow:
-        return PlaylistShow(onTrackClick: onTrackClick, onExit: goBack);
+        return PlaylistShow(albumData: albumData, onTrackClick: onTrackClick, onExit: goBack);
       case Screen.directories:
         return const Directories();
       default:
