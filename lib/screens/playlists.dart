@@ -40,8 +40,7 @@ class Playlists extends StatelessWidget {
                   height: 20,
                 ),
                 Album(
-                  image: Image.asset('heart.png'),
-                  name: 'Ulubione',
+                  data: albumsController.favorites,
                   constraints:
                       const BoxConstraints(maxWidth: 140, maxHeight: 140),
                   onTap: onAlbumClick,
@@ -55,8 +54,7 @@ class Playlists extends StatelessWidget {
                   height: 20,
                 ),
                 Album(
-                  image: Image.asset('assets/recent.png'),
-                  name: 'Ostatnio odtwarzane',
+                  data: albumsController.lastPlayed,
                   constraints:
                       const BoxConstraints(maxWidth: 140, maxHeight: 140),
                   onTap: onAlbumClick,
@@ -76,8 +74,7 @@ class Playlists extends StatelessWidget {
           rowCount: 2,
           children: albumsController
               .getAll()
-              .map((data) => Album(
-                  name: data.name, image: data.image, onTap: onAlbumClick))
+              .map((data) => Album(data: data, onTap: onAlbumClick))
               .toList(),
         )
       ]))

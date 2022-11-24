@@ -3,28 +3,33 @@ import 'package:flutter/material.dart';
 import 'cover.dart';
 
 class AlbumData {
+  final int? id;
   final String name;
   final Image? image;
   final bool? favorite;
   final DateTime? lastPlayed;
   final List<int> trackIds;
 
-  const AlbumData({required this.name, this.image, this.favorite, this.lastPlayed, this.trackIds = const []});
+  const AlbumData(
+      {this.id,
+      required this.name,
+      this.image,
+      this.favorite,
+      this.lastPlayed,
+      this.trackIds = const []});
 }
 
 class Album extends StatelessWidget {
   const Album(
       {super.key,
-      required this.name,
+      required this.data,
       this.onTap,
       this.constraints =
-          const BoxConstraints(maxWidth: 128.0, maxHeight: 128.0),
-      this.image});
+          const BoxConstraints(maxWidth: 128.0, maxHeight: 128.0)});
 
-  final String name;
+  final AlbumData data;
   final void Function(BuildContext context, AlbumData data)? onTap;
   final BoxConstraints constraints;
-  final Image? image;
 
   static const double padding = 10;
 
@@ -32,11 +37,14 @@ class Album extends StatelessWidget {
   Widget build(BuildContext context) {
     var textTheme = Theme.of(context).textTheme;
 
+    var name = data.name;
+    var image = data.image;
+
     return Container(
       padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
       child: InkWell(
         onTap: () {
-          onTap?.call(context, AlbumData(name: name, image: image));
+          onTap?.call(context, data);
         },
         child: Column(
           children: [

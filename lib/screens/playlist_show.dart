@@ -41,12 +41,19 @@ class PlaylistShow extends StatelessWidget {
     AlbumsController albumsController = Get.find();
     TracksController tracksController = Get.find();
 
-    var trackIds = albumsController.getByName(albumData.name).trackIds;
+    List<TrackData> tracks = [];
+    if (albumsController.isFavorites(albumData)) {
+      tracks = tracksController.getFavorites();
+    } else if (albumsController.isLastPlayed(albumData)) {
+      tracks = tracksController.getByLastPlayed();
+    } else {
+      tracks = albumData.trackIds.map((id) => tracksController.getById(id)).toList();
+    }
+
     List<Widget> widgets = [];
 
-    for (var id in trackIds) {
-      var trackData = tracksController.getById(id);
-      widgets.add(WideTrack(data: trackData, onTap: _onTrackClick));
+    for (var track in tracks) {
+      widgets.add(WideTrack(data: track, onTap: _onTrackClick));
     }
 
     return widgets;
