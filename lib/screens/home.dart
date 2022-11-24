@@ -40,8 +40,7 @@ class Home extends StatelessWidget {
               columnCount: 1,
               children: albumsController
                   .getAll()
-                  .map((data) => Album(
-                      name: data.name, image: data.image, onTap: onAlbumClick))
+                  .map((data) => Album(data: data, onTap: onAlbumClick))
                   .toList(),
             )),
         SizedBox(height: padding),
