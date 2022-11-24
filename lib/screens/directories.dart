@@ -111,14 +111,15 @@ class _DirectoriesState extends State<Directories> {
      shrinkWrap: true,
      physics: const NeverScrollableScrollPhysics(),
      itemBuilder: (BuildContext context, int index){
-       return Row(
+
+
+
+
+
+      return Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            IconButton(
-              icon: const Icon(Icons.folder_outlined, color: Colors.white),
-              iconSize: 50,
-              onPressed: () {},
-            ),
+               const Icon(Icons.folder_outlined, color: Colors.white, size: 50),
             SizedBox(
               width: 275,
               child: Text(items[index],style: const TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w500),
