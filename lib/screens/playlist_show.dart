@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:odtwarzacz/controllers/albums.dart';
 import 'package:odtwarzacz/controllers/tracks.dart';
-import 'package:odtwarzacz/widgets/track.dart';
 import 'package:odtwarzacz/widgets/widetrack.dart';
-
-import '../widgets/album.dart';
 
 class PlaylistShow extends StatelessWidget {
   const PlaylistShow(

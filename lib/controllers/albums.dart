@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../widgets/album.dart';
-
 class AlbumData {
   final int id;
   final String name;

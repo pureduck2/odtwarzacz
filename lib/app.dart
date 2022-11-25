@@ -4,9 +4,7 @@ import 'package:odtwarzacz/controllers/albums.dart';
 import 'package:odtwarzacz/controllers/tracks.dart';
 import 'package:odtwarzacz/screens/player.dart';
 import 'package:odtwarzacz/screens/playlist_show.dart';
-import 'package:odtwarzacz/widgets/album.dart';
 import 'package:odtwarzacz/widgets/miniplayer.dart';
-import 'package:odtwarzacz/widgets/track.dart';
 
 import 'screens/directories.dart';
 import 'screens/home.dart';
