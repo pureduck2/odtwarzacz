@@ -30,7 +30,6 @@ class ProgressBarWrapper extends StatelessWidget {
       thumbRadius: thumbRadius,
       onSeek: onSeek,
       onDragUpdate: onDragUpdate,
-
       progressBarColor: Colors.white,
       baseBarColor: Colors.grey,
       thumbColor: Colors.white,

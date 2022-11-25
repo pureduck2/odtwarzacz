@@ -3,8 +3,7 @@ import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:odtwarzacz/widgets/progressbarwrapper.dart';
 import 'package:odtwarzacz/screens/player.dart';
-
-import 'cover.dart';
+import 'package:odtwarzacz/widgets/cover.dart';
 
 class MiniPlayer extends StatefulWidget {
   const MiniPlayer({super.key, required this.args});
@@ -63,7 +62,9 @@ class MiniPlayerState extends State<MiniPlayer> {
                 children: [
                   const Padding(
                     padding: EdgeInsets.all(8.0),
-                    child: Cover(constraints: BoxConstraints(maxWidth: 48, maxHeight: 48)),
+                    child: Cover(
+                        constraints:
+                            BoxConstraints(maxWidth: 48, maxHeight: 48)),
                   ),
                   const SizedBox(width: padding),
                   Expanded(

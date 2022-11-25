@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:odtwarzacz/widgets/row_list.dart';
-import '../controllers/albums.dart';
-import '../widgets/album.dart';
+import 'package:odtwarzacz/controllers/albums.dart';
+import 'package:odtwarzacz/widgets/album.dart';
 
 class Playlists extends StatelessWidget {
   const Playlists({super.key, this.onAlbumClick});

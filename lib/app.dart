@@ -5,17 +5,11 @@ import 'package:odtwarzacz/controllers/tracks.dart';
 import 'package:odtwarzacz/screens/player.dart';
 import 'package:odtwarzacz/screens/playlist_show.dart';
 import 'package:odtwarzacz/widgets/miniplayer.dart';
+import 'package:odtwarzacz/screens/directories.dart';
+import 'package:odtwarzacz/screens/home.dart';
+import 'package:odtwarzacz/screens/playlists.dart';
 
-import 'screens/directories.dart';
-import 'screens/home.dart';
-import 'screens/playlists.dart';
-
-enum Screen {
-  home,
-  playlists,
-  playlistsShow,
-  directories
-}
+enum Screen { home, playlists, playlistsShow, directories }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -35,7 +29,7 @@ class MyApp extends StatelessWidget {
             headline3: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             headline4: TextStyle(fontSize: 20),
             subtitle1: TextStyle(fontSize: 20, color: Colors.grey),
-                subtitle2: TextStyle(fontSize: 16, color: Colors.grey),
+            subtitle2: TextStyle(fontSize: 16, color: Colors.grey),
           ))
           .copyWith(
               bottomNavigationBarTheme: const BottomNavigationBarThemeData(
@@ -86,9 +80,15 @@ class MainState extends State<Main> {
       _tracksController.updateLastPlayedByName(data.name, DateTime.now());
 
       if (_args == null) {
-        _args = PlayerArguments(trackName: data.name, trackAuthor: data.author, albumName: data.albumName);
+        _args = PlayerArguments(
+            trackName: data.name,
+            trackAuthor: data.author,
+            albumName: data.albumName);
       } else {
-        _args!.updateWith(PlayerArguments(trackName: data.name, trackAuthor: data.author, albumName: data.albumName));
+        _args!.updateWith(PlayerArguments(
+            trackName: data.name,
+            trackAuthor: data.author,
+            albumName: data.albumName));
       }
     });
   }
@@ -110,7 +110,8 @@ class MainState extends State<Main> {
       case Screen.playlists:
         return Playlists(onAlbumClick: onAlbumClick);
       case Screen.playlistsShow:
-        return PlaylistShow(albumData: albumData, onTrackClick: onTrackClick, onExit: goBack);
+        return PlaylistShow(
+            albumData: albumData, onTrackClick: onTrackClick, onExit: goBack);
       case Screen.directories:
         return const Directories();
       default:

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../controllers/albums.dart';
-import 'cover.dart';
+import 'package:odtwarzacz/controllers/albums.dart';
+import 'package:odtwarzacz/widgets/cover.dart';
 
 class Album extends StatelessWidget {
   const Album(

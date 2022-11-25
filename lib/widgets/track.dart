@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../controllers/tracks.dart';
-import 'cover.dart';
+import 'package:odtwarzacz/controllers/tracks.dart';
+import 'package:odtwarzacz/widgets/cover.dart';
 
 class Track extends StatelessWidget {
   const Track({super.key, required this.data, this.onTap});
@@ -23,7 +23,8 @@ class Track extends StatelessWidget {
 
     return InkWell(
       onTap: () {
-        onTap?.call(context, TrackData(id: data.id, name: name, author: author));
+        onTap?.call(
+            context, TrackData(id: data.id, name: name, author: author));
       },
       child: Row(
         children: [

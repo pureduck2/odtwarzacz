@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:quiver/iterables.dart';
 
 class ColumnList extends StatelessWidget {
-  const ColumnList({super.key, required this.children, required this.columnCount});
+  const ColumnList(
+      {super.key, required this.children, required this.columnCount});
 
   final List<Widget> children;
   final int columnCount;

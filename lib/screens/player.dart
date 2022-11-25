@@ -2,9 +2,8 @@ import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:odtwarzacz/widgets/progressbarwrapper.dart';
-
-import '../controllers/tracks.dart';
-import '../widgets/cover.dart';
+import 'package:odtwarzacz/controllers/tracks.dart';
+import 'package:odtwarzacz/widgets/cover.dart';
 
 enum RepeatType {
   none,

@@ -6,10 +6,7 @@ import 'package:odtwarzacz/widgets/widetrack.dart';
 
 class PlaylistShow extends StatelessWidget {
   const PlaylistShow(
-      {super.key,
-      this.onTrackClick,
-      this.onExit,
-      required this.albumData});
+      {super.key, this.onTrackClick, this.onExit, required this.albumData});
 
   final void Function(BuildContext context, TrackData data)? onTrackClick;
   final void Function()? onExit;

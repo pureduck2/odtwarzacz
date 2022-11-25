@@ -9,11 +9,10 @@ class CenteredText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: Alignment.center,
-      child: Text(
-        data,
-        style: style,
-      )
-    );
+        alignment: Alignment.center,
+        child: Text(
+          data,
+          style: style,
+        ));
   }
 }

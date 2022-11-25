@@ -5,8 +5,7 @@ import 'package:odtwarzacz/controllers/tracks.dart';
 import 'package:odtwarzacz/widgets/album.dart';
 import 'package:odtwarzacz/widgets/column_list.dart';
 import 'package:odtwarzacz/widgets/track.dart';
-
-import '../widgets/centeredtext.dart';
+import 'package:odtwarzacz/widgets/centeredtext.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key, this.onTrackClick, this.onAlbumClick});

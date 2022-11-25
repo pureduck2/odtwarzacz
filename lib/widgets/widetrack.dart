@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
-import '../controllers/tracks.dart';
-import 'cover.dart';
+import 'package:odtwarzacz/controllers/tracks.dart';
+import 'package:odtwarzacz/widgets/cover.dart';
 
 class WideTrack extends StatelessWidget {
   const WideTrack({super.key, required this.data, this.onTap});
@@ -17,7 +16,10 @@ class WideTrack extends StatelessWidget {
     var author = data.author;
 
     var textTheme = Theme.of(context).textTheme;
-    var columnChildren = [Text(name, style: textTheme.headline4), Text(author, style: textTheme.subtitle2)];
+    var columnChildren = [
+      Text(name, style: textTheme.headline4),
+      Text(author, style: textTheme.subtitle2)
+    ];
 
     return InkWell(
       onTap: () {
