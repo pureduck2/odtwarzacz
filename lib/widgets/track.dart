@@ -1,39 +1,6 @@
 import 'package:flutter/material.dart';
-
+import '../controllers/tracks.dart';
 import 'cover.dart';
-
-class TrackData {
-  final int? id;
-  final String name;
-  final String author;
-  final String? albumName;
-  final bool favorite;
-  final DateTime? lastPlayed;
-
-  const TrackData(
-      {this.id,
-      required this.name,
-      required this.author,
-      this.albumName,
-      this.favorite = false,
-      this.lastPlayed});
-
-  TrackData copyWith(
-      {int? id,
-      String? name,
-      String? author,
-      String? albumName,
-      bool? favorite,
-      DateTime? lastPlayed}) {
-    return TrackData(
-        id: id ?? this.id,
-        name: name ?? this.name,
-        author: author ?? this.author,
-        albumName: albumName ?? this.albumName,
-        favorite: favorite ?? this.favorite,
-        lastPlayed: lastPlayed ?? this.lastPlayed);
-  }
-}
 
 class Track extends StatelessWidget {
   const Track({super.key, required this.data, this.onTap});

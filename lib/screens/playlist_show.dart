@@ -19,10 +19,7 @@ class PlaylistShow extends StatelessWidget {
   final AlbumData albumData;
 
   void _onTrackClick(BuildContext context, TrackData data) {
-    onTrackClick?.call(
-        context,
-        TrackData(
-            name: data.name, author: data.author, albumName: albumData.name));
+    onTrackClick?.call(context, data);
   }
 
   Image _getAlbumImage() {
@@ -47,7 +44,8 @@ class PlaylistShow extends StatelessWidget {
     } else if (albumsController.isLastPlayed(albumData)) {
       tracks = tracksController.getByLastPlayed();
     } else {
-      tracks = albumData.trackIds.map((id) => tracksController.getById(id)).toList();
+      tracks =
+          albumData.trackIds.map((id) => tracksController.getById(id)).toList();
     }
 
     List<Widget> widgets = [];

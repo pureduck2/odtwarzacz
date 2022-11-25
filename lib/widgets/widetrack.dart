@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:odtwarzacz/widgets/track.dart';
 
+import '../controllers/tracks.dart';
 import 'cover.dart';
 
 class WideTrack extends StatelessWidget {
@@ -22,7 +22,7 @@ class WideTrack extends StatelessWidget {
     return InkWell(
       onTap: () {
         debugPrint('nikodem');
-        onTap?.call(context, TrackData(name: name, author: author));
+        onTap?.call(context, data);
       },
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
