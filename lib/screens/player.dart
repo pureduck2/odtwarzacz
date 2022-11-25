@@ -1,6 +1,7 @@
 import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:odtwarzacz/controllers/albums.dart';
 import 'package:odtwarzacz/widgets/progressbarwrapper.dart';
 import 'package:odtwarzacz/controllers/tracks.dart';
 import 'package:odtwarzacz/widgets/cover.dart';
@@ -37,29 +38,26 @@ enum RepeatType {
 }
 
 class PlayerArguments {
-  String trackName;
-  String trackAuthor;
-  String? albumName;
+  TrackData trackData;
+  AlbumData? albumData;
   bool? shuffle;
   RepeatType? repeatType;
   bool? play;
   Duration? progress;
 
   PlayerArguments(
-      {required this.trackName,
-      required this.trackAuthor,
-      this.albumName,
+      {required this.trackData,
+      this.albumData,
       this.shuffle,
       this.repeatType,
       this.play,
       this.progress});
 
   void updateWith(PlayerArguments args) {
-    trackName = args.trackName;
-    trackAuthor = args.trackAuthor;
+    trackData = args.trackData;
 
-    if (args.albumName != null) {
-      albumName = args.albumName;
+    if (args.albumData != null) {
+      albumData = args.albumData;
     }
 
     if (args.shuffle != null) {
@@ -81,15 +79,19 @@ class PlayerArguments {
 }
 
 class Player extends StatefulWidget {
-  const Player({super.key, required this.args});
+  const Player({super.key, required this.args, this.onTrackClick});
 
   final PlayerArguments args;
+  final void Function(
+          BuildContext context, TrackData trackData, AlbumData? albumData)?
+      onTrackClick;
 
   @override
   PlayerState createState() => PlayerState();
 }
 
 class PlayerState extends State<Player> {
+  late PlayerArguments _args;
   bool _play = false;
   bool _shuffle = false;
   RepeatType _repeatType = RepeatType.none;
@@ -97,14 +99,33 @@ class PlayerState extends State<Player> {
   late TracksController _tracksController;
 
   void _toggleFavorite() {
-    var name = widget.args.trackName;
+    var name = widget.args.trackData.name;
     bool favorite = _tracksController.getByName(name).favorite;
     _tracksController.setFavoriteByName(name, !favorite);
+  }
+
+  void _previousTrack(BuildContext context, List<int> previousTracks) {
+    _progress = Duration.zero;
+    TrackData track = _tracksController.getById(previousTracks.last);
+    widget.onTrackClick?.call(context, track, _args.albumData);
+    setState(() {
+      _args = PlayerArguments(trackData: track, albumData: _args.albumData);
+    });
+  }
+
+  void _nextTrack(BuildContext context, List<int> nextTracks) {
+    _progress = Duration.zero;
+    TrackData track = _tracksController.getById(nextTracks[0]);
+    widget.onTrackClick?.call(context, track, _args.albumData);
+    setState(() {
+      _args = PlayerArguments(trackData: track, albumData: _args.albumData);
+    });
   }
 
   @override
   void initState() {
     final args = widget.args;
+    _args = args;
     _play = args.play ?? _play;
     _shuffle = args.shuffle ?? _shuffle;
     _repeatType = args.repeatType ?? _repeatType;
@@ -119,12 +140,16 @@ class PlayerState extends State<Player> {
     var textTheme = Theme.of(context).textTheme;
     var padding = 10.0;
 
-    final args = widget.args;
-    var trackName = args.trackName;
-    var trackAuthor = args.trackAuthor;
-    var albumName = args.albumName ?? trackName;
+    final trackData = _args.trackData;
+    final albumData = _args.albumData;
 
-    bool favorite = _tracksController.getByName(trackName).favorite;
+    var albumName = albumData?.name ?? trackData.name;
+
+    bool favorite = _tracksController.getByName(trackData.name).favorite;
+
+    var index = albumData!.trackIds.indexWhere((id) => id == trackData.id);
+    var previousTracks = albumData?.trackIds.sublist(0, index) ?? [];
+    var nextTracks = albumData?.trackIds.sublist(index + 1) ?? [];
 
     return Scaffold(
       appBar: AppBar(
@@ -137,8 +162,8 @@ class PlayerState extends State<Player> {
               Navigator.pop(
                   context,
                   PlayerArguments(
-                      trackName: trackName,
-                      trackAuthor: trackAuthor,
+                      trackData: widget.args.trackData,
+                      albumData: widget.args.albumData,
                       shuffle: _shuffle,
                       repeatType: _repeatType,
                       play: _play,
@@ -152,9 +177,9 @@ class PlayerState extends State<Player> {
         children: [
           const Cover(constraints: null),
           SizedBox(height: padding),
-          Text(trackName, style: textTheme.headline1),
+          Text(trackData.name, style: textTheme.headline1),
           SizedBox(height: padding / 2),
-          Text(trackAuthor, style: textTheme.subtitle1),
+          Text(trackData.author, style: textTheme.subtitle1),
           Padding(
             padding: const EdgeInsets.fromLTRB(32, 16, 32, 4),
             child: ProgressBarWrapper(
@@ -170,7 +195,11 @@ class PlayerState extends State<Player> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               IconButton(
-                onPressed: () {},
+                onPressed: previousTracks.isNotEmpty
+                    ? () {
+                        _previousTrack(context, previousTracks);
+                      }
+                    : null,
                 icon: const Icon(Icons.skip_previous),
                 iconSize: 48,
               ),
@@ -182,7 +211,11 @@ class PlayerState extends State<Player> {
                 iconSize: 96,
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: nextTracks.isNotEmpty
+                    ? () {
+                        _nextTrack(context, nextTracks);
+                      }
+                    : null,
                 icon: const Icon(Icons.skip_next),
                 iconSize: 48,
               ),

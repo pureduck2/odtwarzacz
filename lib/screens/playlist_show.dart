@@ -8,12 +8,12 @@ class PlaylistShow extends StatelessWidget {
   const PlaylistShow(
       {super.key, this.onTrackClick, this.onExit, required this.albumData});
 
-  final void Function(BuildContext context, TrackData data)? onTrackClick;
+  final void Function(BuildContext context, TrackData trackData, AlbumData? albumData)? onTrackClick;
   final void Function()? onExit;
   final AlbumData albumData;
 
-  void _onTrackClick(BuildContext context, TrackData data) {
-    onTrackClick?.call(context, data);
+  void _onTrackClick(BuildContext context, TrackData trackData) {
+    onTrackClick?.call(context, trackData, albumData);
   }
 
   Image _getAlbumImage() {

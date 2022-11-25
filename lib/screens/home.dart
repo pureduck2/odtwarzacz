@@ -10,8 +10,12 @@ import 'package:odtwarzacz/widgets/centeredtext.dart';
 class Home extends StatelessWidget {
   const Home({super.key, this.onTrackClick, this.onAlbumClick});
 
-  final void Function(BuildContext context, TrackData data)? onTrackClick;
+  final void Function(BuildContext context, TrackData trackData, AlbumData? albumData)? onTrackClick;
   final void Function(BuildContext context, AlbumData data)? onAlbumClick;
+
+  void _onTrackClick(BuildContext context, TrackData trackData) {
+    onTrackClick?.call(context, trackData, null);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +55,7 @@ class Home extends StatelessWidget {
             columnCount: 2,
             children: tracksController
                 .getByLastPlayed()
-                .map((data) => Track(data: data, onTap: onTrackClick))
+                .map((data) => Track(data: data, onTap: _onTrackClick))
                 .toList(),
           ),
         ),

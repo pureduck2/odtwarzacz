@@ -75,20 +75,14 @@ class MainState extends State<Main> {
     });
   }
 
-  void onTrackClick(BuildContext context, TrackData data) {
+  void onTrackClick(BuildContext context, TrackData trackData, AlbumData? albumData) {
     setState(() {
-      _tracksController.updateLastPlayedByName(data.name, DateTime.now());
+      _tracksController.updateLastPlayedByName(trackData.name, DateTime.now());
 
       if (_args == null) {
-        _args = PlayerArguments(
-            trackName: data.name,
-            trackAuthor: data.author,
-            albumName: data.albumName);
+        _args = PlayerArguments(trackData: trackData, albumData: albumData);
       } else {
-        _args!.updateWith(PlayerArguments(
-            trackName: data.name,
-            trackAuthor: data.author,
-            albumName: data.albumName));
+        _args!.updateWith(PlayerArguments(trackData: trackData, albumData: albumData));
       }
     });
   }
@@ -147,7 +141,7 @@ class MainState extends State<Main> {
       enableDrag: false,
       onClosing: () {},
       builder: (BuildContext context) {
-        return MiniPlayer(args: args);
+        return MiniPlayer(args: args, onTrackClick: onTrackClick);
       },
     );
   }
