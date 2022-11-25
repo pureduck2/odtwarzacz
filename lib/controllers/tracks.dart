@@ -20,6 +20,12 @@ class TracksController extends GetxController {
     tracks[index] = track.copyWith(favorite: favorite);
   }
 
+  void updateLastPlayedByName(String name, DateTime lastPlayed) {
+    var index = tracks.indexWhere((data) => data.name == name);
+    var track = tracks[index];
+    tracks[index] = track.copyWith(lastPlayed: lastPlayed);
+  }
+
   TrackData getById(int id) {
     return tracks.firstWhere((data) => data.id == id);
   }

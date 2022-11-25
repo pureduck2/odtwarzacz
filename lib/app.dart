@@ -85,6 +85,8 @@ class MainState extends State<Main> {
 
   void onTrackClick(BuildContext context, TrackData data) {
     setState(() {
+      _tracksController.updateLastPlayedByName(data.name, DateTime.now());
+
       if (_args == null) {
         _args = PlayerArguments(trackName: data.name, trackAuthor: data.author, albumName: data.albumName);
       } else {
