@@ -3,6 +3,24 @@ import 'package:get/get.dart';
 
 import '../widgets/album.dart';
 
+class AlbumData {
+  final int id;
+  final String name;
+  final Image? image;
+  final bool? favorite;
+  final DateTime? lastPlayed;
+  final List<int> trackIds;
+
+  const AlbumData(
+      {required this.id,
+        required this.name,
+        this.image,
+        this.favorite,
+        this.lastPlayed,
+        this.trackIds = const []});
+}
+
+
 class AlbumsController extends GetxController {
   static const favoritesId = -1;
   static const lastPlayedId = -2;

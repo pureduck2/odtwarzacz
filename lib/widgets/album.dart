@@ -1,23 +1,6 @@
 import 'package:flutter/material.dart';
-
+import '../controllers/albums.dart';
 import 'cover.dart';
-
-class AlbumData {
-  final int? id;
-  final String name;
-  final Image? image;
-  final bool? favorite;
-  final DateTime? lastPlayed;
-  final List<int> trackIds;
-
-  const AlbumData(
-      {this.id,
-      required this.name,
-      this.image,
-      this.favorite,
-      this.lastPlayed,
-      this.trackIds = const []});
-}
 
 class Album extends StatelessWidget {
   const Album(
