@@ -14,46 +14,56 @@ class _PlaylistCreateState extends State<PlaylistCreate> {
   Widget build(BuildContext context) {
     return MaterialApp(
 
-        home: Scaffold(
-            backgroundColor: Colors.black,
-            appBar: AppBar(
-              backgroundColor: Colors.black,
-              centerTitle: true,
-              title: const Text(
-                'Tworzenie playlisty',
-              ),
-              leading: IconButton(
-                icon: const Icon(Icons.arrow_back, size: 25,),
-                onPressed: () {},
-              ),
-            ), body: Padding(
-          padding: const EdgeInsets.all(100.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children:  [
-              TextField(
-                controller: _textController,
-                decoration: const InputDecoration(
-                  hintText: 'Nazwa',
-                  hintStyle: TextStyle(
-                    color: Colors.white70,
-                    fontSize: 18,
-                    fontStyle: FontStyle.italic,
-                  ),
-                  enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(
-                      width: 3, color: Colors.white
-                    ),
-                  ),
+      home: Scaffold(
+        backgroundColor: Colors.black,
+        appBar: AppBar(
+          backgroundColor: Colors.black,
+          centerTitle: true,
+          title: const Text(
+            'Tworzenie playlisty',
           ),
-                style: const TextStyle(
-                  color: Colors.white,
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back, size: 25,),
+            onPressed: () {},
+          ),
+        ), body: Padding(
+        padding: const EdgeInsets.all(100.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children:  [
+            TextField(
+              controller: _textController,
+              decoration: const InputDecoration(
+                hintText: 'Nazwa',
+                hintStyle: TextStyle(
+                  color: Colors.white70,
+                  fontSize: 18,
+                  fontStyle: FontStyle.italic,
                 ),
+                enabledBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(
+                      width: 3, color: Colors.white
+                  ),
+                ),
+              ),
+              style: const TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          ],
         ),
-            ],
-          ),
-        ),
-        ),
+      ),
+          CheckboxListTile(
+              title: Text("title text"),
+              value: checkedValue,
+              onChanged: (newValue) {
+                setState(() {
+                  checkedValue = newValue;
+                });
+              },
+              controlAffinity: ListTileControlAffinity.leading
+          )
+      ),
     );
   }
 }
